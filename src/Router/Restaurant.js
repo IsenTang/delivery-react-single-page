@@ -1,15 +1,15 @@
-import React from 'react'
+import React from 'react';
 
 export default function(Loadable) {
-    return [
+   return [
       {
-        name:      'restaurant',
-        path:      '/restaurant',
-        exact:     true,
-        component: Loadable({
-          loader:  () => import('../Views/Restaurant/view'),
-          loading: () => <div />
-        })
+         name:      'restaurant',
+         path:      '/restaurant',
+         exact:     true,
+         component: Loadable({
+            loader:  () => import('../Views/Restaurant/view'),
+            loading: () => <div />
+         })
       }
-    ];
+   ];
 }

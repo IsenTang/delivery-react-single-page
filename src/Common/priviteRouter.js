@@ -10,41 +10,40 @@ import { get } from './utils';
  */
 const PrivateRouter = ({ component: Component, ...rest }) => {
 
-  /* get user from local storage */
-  const user = get('user');
+   /* get user from local storage */
+   const user = get('user');
 
-  const token = _.get(user, 'token');
+   const token = _.get(user, 'token');
 
-  /* if token exist , it is login  */
-  const isAuthenticated = !_.isEmpty(token);
+   /* if token exist , it is login  */
+   const isAuthenticated = !_.isEmpty(token);
 
-  let flag = true;
-  let redirectAddress = '/login';
+   let flag = true;
+   let redirectAddress = '/login';
 
-  /* if path = login , if isAuth , directly go to the restaurant page */
-  /* else go to the login page  */
+   /* if path = login , if isAuth , directly go to the restaurant page */
+   /* else go to the login page  */
 
-  if (rest.path === '/login') {
-    if (isAuthenticated) {
-      flag = false;
-      redirectAddress = '/restaurant';
-    }
+   if (rest.path === '/login') {
+      if (isAuthenticated) {
+         flag = false;
+         redirectAddress = '/restaurant';
+      }
 
-  /* if path != login , if isAuth , directly go to the exactly page */
-  }
+      /* if path != login , if isAuth , directly go to the exactly page */
+   }
 
-  return (
-    <Route {...rest} render={(props) => (
-      flag  ?
-        <Component {...props} /> :
-        <Redirect to={redirectAddress} />
-    )} />
-  );
+   return (
+      <Route {...rest} render={(props) => (
+         flag  ?
+            <Component {...props} /> :
+            <Redirect to={redirectAddress} />
+      )} />
+   );
 };
 
 PrivateRouter.propTypes = {
-    component: PropTypes.any
-}
-
+   component: PropTypes.any
+};
 
 export default PrivateRouter;

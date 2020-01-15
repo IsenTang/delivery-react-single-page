@@ -1,15 +1,15 @@
-import React from 'react'
+import React from 'react';
 
 export default function(Loadable) {
-    return [
+   return [
       {
-        name:      'login',
-        path:      '/login',
-        exact:     true,
-        component: Loadable({
-          loader:  () => import('../Views/Login/view'),
-          loading: () => <div />
-        })
+         name:      'login',
+         path:      '/login',
+         exact:     true,
+         component: Loadable({
+            loader:  () => import('../Views/Login/view'),
+            loading: () => <div />
+         })
       }
-    ];
+   ];
 }

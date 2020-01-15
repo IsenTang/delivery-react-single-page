@@ -1,7 +1,7 @@
 import loading from './reducers/loading';
 
 const rootReducer = {
-    loading
+   loading
 };
   
 export default rootReducer;

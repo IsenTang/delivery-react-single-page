@@ -4,18 +4,18 @@ const initialState = { showLoading: false };
 
 export default (state = initialState, payload) => {
 
-  switch (payload.type) {
-    case ActionType.SHOW_LOADING:
+   switch (payload.type) {
+   case ActionType.SHOW_LOADING:
       return {
-        ...state,
-        showLoading: true
+         ...state,
+         showLoading: true
       };
-    case ActionType.HIDE_LOADING:
+   case ActionType.HIDE_LOADING:
       return {
-        ...state,
-        showLoading: false
+         ...state,
+         showLoading: false
       };
-    default:
+   default:
       return state;
-  }
+   }
 };
