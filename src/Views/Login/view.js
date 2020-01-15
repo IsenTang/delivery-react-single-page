@@ -1,12 +1,18 @@
 import React from 'react';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+/* actions */
+import { login } from './state/actions';
 
 /* style */
 import './style.scss';
-
+ 
 /* 登录页面 */
 function Login() {
 
+   const dispatch = useDispatch();
+    
    const [name,setName] = useState('');
 
    const [password,setPassword] = useState('');
@@ -16,15 +22,18 @@ function Login() {
       e.preventDefault();
       
       /* 检测数据 */
-      if(!checkName(name)){
-         console.log('name error');
-         return;
-      }
+      // if(!checkName(name)){
+      //    console.log('name error');
+      //    return;
+      // }
 
-      if(!checkPassword(password)){
-         console.log('password error');
-         return;
-      }
+      // if(!checkPassword(password)){
+      //    console.log('password error');
+      //    return;
+      // }
+
+      dispatch(login(name,password));
+
    }
 
    /* 检测用户名 */

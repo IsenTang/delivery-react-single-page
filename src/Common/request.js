@@ -1,8 +1,8 @@
 import axios from 'axios';
 import _ from 'lodash';
-import pathToRegexp from 'path-to-regexp';
+import { parse,compile } from 'path-to-regexp';
 import CustomError from './error';
-import { get } from './storage';
+import { get } from './utils';
 
 /* 30 sec timeout */
 axios.defaults.timeout = 30000;
@@ -41,10 +41,10 @@ const fetch = (options) => {
          domin = val;
          url = url.slice(domin.length);
       }
+   
+      const match = parse(url);
 
-      const match = pathToRegexp.parse(url);
-
-      url = pathToRegexp.compile(url)(data);
+      url = compile(url)(data);
 
       _.forEach(match, item => {
 
@@ -54,6 +54,8 @@ const fetch = (options) => {
       });
       url = domin + url;
    } catch (e) {
+
+      console.log(e);
       _.noop();
    }
 
