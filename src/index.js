@@ -1,10 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
+import { ConnectedRouter } from 'connected-react-router';
 import './index.css';
 import App from './App';
-import configureStore from './redux/store'
+import configureStore from './Redux/store'
 import * as serviceWorker from './serviceWorker';
+import { history } from './Redux/store'
 
 /* 创建store */
 const store = configureStore()
@@ -12,7 +14,9 @@ const store = configureStore()
 const renderApp = () =>
   render(
     <Provider store={store}>
-      <App />
+      <ConnectedRouter history={history}>
+          <App />
+      </ConnectedRouter>
     </Provider>,
     document.getElementById('root')
   )
