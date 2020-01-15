@@ -22,7 +22,7 @@ function renderRouter(){
 
     <Route key={uuidv4()} component={r.component}
       exact={!!r.exact}
-      key={key}
+      // key={key}
       path={r.path}
     />
   ));

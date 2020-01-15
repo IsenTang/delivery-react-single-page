@@ -1,5 +1,8 @@
+
+/* 四舍五入 */
 const round = number => Math.round(number * 100) / 100
 
+/* 计算reducer执行的时间 */
 const monitorReducerEnhancer = createStore => (
   reducer,
   initialState,
