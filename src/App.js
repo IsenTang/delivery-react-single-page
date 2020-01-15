@@ -1,8 +1,9 @@
 import React from 'react';
 import _ from 'lodash'
-import { Route, Switch } from 'react-router-dom';
+import { Switch,Redirect } from 'react-router-dom';
 import  uuidv4  from 'uuid/v4';
 
+import PrivateRouter from './Common/priviteRouter';
 import routers from './Router/index';
 
 
@@ -18,14 +19,15 @@ function App() {
 
 function renderRouter(){
 
-  const array = _.map(routers, (r, key) => (
+  const array = _.map(routers, (r) => (
 
-    <Route key={uuidv4()} component={r.component}
+    <PrivateRouter key={uuidv4()} component={r.component}
       exact={!!r.exact}
-      // key={key}
       path={r.path}
     />
   ));
+
+  array.push(<Redirect key={uuidv4()} path="/" exact={true} to="/restaurant" />);
 
   return array;
 }

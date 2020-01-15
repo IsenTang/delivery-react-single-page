@@ -4,6 +4,7 @@ import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { get } from './utils';
 
+/* 用户在未登录的情况下可以看餐馆信息 */
 /**
  * private rote
  */
@@ -31,8 +32,6 @@ const PrivateRouter = ({ component: Component, ...rest }) => {
 
   /* if path != login , if isAuth , directly go to the exactly page */
   }
-
-
 
   return (
     <Route {...rest} render={(props) => (
