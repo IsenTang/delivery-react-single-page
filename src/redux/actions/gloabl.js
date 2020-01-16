@@ -5,6 +5,6 @@ export function showError(message,closeFunc){
 
    return async(dispatch) => {
         
-      dispatch({type:ActionType.SHOW_ERROR,message,closeFunc});
+      dispatch({ type:ActionType.SHOW_ERROR,message,closeFunc });
    };
 }

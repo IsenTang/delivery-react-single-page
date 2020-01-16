@@ -1,17 +1,19 @@
 {
+    "env": { 
+            "browser": true,
+            "node":true,
+            "es6":true
+    },
     "plugins": [
         "react"
      ],
+     "settings":{
+        "react":{
+            "version":"detect"
+        }
+     },
     "parser": "babel-eslint", 
     "extends": ["eslint:recommended", "plugin:react/recommended"],
-    "globals": {
-        "localStorage": true,
-        "document":true,
-        "module":true,
-        "process":true,
-        "console":true,
-        "performance":true
-    },
     "rules": {
         "react/display-name": [0, { "ignoreTranspilerName": true }],
         "camelcase":[1,{ "properties": "always" }],
@@ -20,6 +22,9 @@
         "semi-spacing": [1,{"before": false, "after": true}],
         "space-infix-ops": 1,
         "switch-colon-spacing": 1,
-        "semi": ["error", "always"]
+        "semi": ["error", "always"],
+        "quotes": [2, "single"],
+        "no-native-reassign": 2,
+        "object-curly-spacing":["error","always"]
     }
 }

@@ -1,5 +1,5 @@
 import _ from 'lodash';
-// import intl from 'react-intl-universal';
+import intl from 'react-intl-universal';
 
 /**
  * custom error
@@ -23,20 +23,20 @@ export default function CustomError(err) {
    /* Decide error message to show */
    /* First find translation */
 
-   //   const trans = intl.get(`error.${this.code}`);
+   const trans = intl.get(`error.${this.code}`);
 
-   //   /* if translate exist, use it as error message */
-   //   if (trans) {
+   /* if translate exist, use it as error message */
+   if (trans) {
 
-   //     this.message = intl.get(`error.${this.code}`, { ...this.details });
-   //   } else {
+      this.message = intl.get(`error.${this.code}`, { ...this.details });
+   } else {
 
-   //     /* If no translation, get the message from error or use universal message */
-   //     this.message =
-   //       _.get(err, 'response.data.message') ||
-   //       err.message ||
-   //       intl.get('error.unknown');
-   //   }
+      /* If no translation, get the message from error or use universal message */
+      this.message =
+         _.get(err, 'response.data.message') ||
+         err.message ||
+         intl.get('error.unknown');
+   }
 
 }
 

@@ -1,0 +1,4 @@
+{
+    "login.error.name":"Please enter the correct username, 4 to 16 digits, letters, numbers, underscores, minus signs.",
+    "login.error.password":"The password entered does not meet the requirements, at least 6 digits, at least 1 uppercase letter, 1 lowercase letter, 1 number, 1 special symbol."
+}

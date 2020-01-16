@@ -11,6 +11,6 @@ export function closeErrorModal(closeFunc){
          await closeFunc();
       }
       
-      dispatch({type:ActionType.HIDE_ERROR});
+      dispatch({ type:ActionType.HIDE_ERROR });
    };
 }

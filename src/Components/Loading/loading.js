@@ -1,17 +1,18 @@
 import React from 'react';
 import { useSelector,shallowEqual } from 'react-redux';
+import PropTypes from 'prop-types';
 import loadingImage from '../../Assets/loading.gif';
 
 import './style.scss';
 
 /* Loading页面 */
-function Loading(){
+function Loading({ showLoading }){
 
    const isLoading = useSelector(state => state.loading.showLoading,shallowEqual);
 
    return (
       <div >
-         {isLoading ?
+         { showLoading || isLoading ?
             <div className='loading-container' >
                <div className='loading-opacityContainer' />
                <div className='loading-image-container'>
@@ -22,5 +23,9 @@ function Loading(){
       </div>
    );
 }
+
+Loading.propTypes = {
+   showLoading: PropTypes.bool
+};
 
 export default Loading;

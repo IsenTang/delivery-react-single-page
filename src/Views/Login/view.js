@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import intl from 'react-intl-universal';
 
 /* actions */
 import { showError } from '../../Redux/actions/gloabl';
@@ -25,13 +26,13 @@ function Login() {
       /* 检测数据 */
       if(!checkName(name)){
    
-         dispatch(showError('请输入正确的用户名，4到16位，字母，数字，下划线，减号。'));
+         dispatch(showError(intl.get('login.error.name')));
          return;
       }
 
       if(!checkPassword(password)){
       
-         dispatch(showError('输入的密码不符合要求，至少6位，至少1个大写字母，1个小写字母，1个数字，1个特殊符号。'));
+         dispatch(showError(intl.get('login.error.password')));
          return;
       }
 

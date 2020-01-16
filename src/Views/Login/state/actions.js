@@ -14,7 +14,7 @@ export function login(name,password){
       try {
     
          /* check login */
-         const user = await checkLogin({ name, password });
+         await checkLogin({ name, password });
 
          /* save token and user info  */
          //  dispatch({ type: ActionType.SAVE_USER, user });
