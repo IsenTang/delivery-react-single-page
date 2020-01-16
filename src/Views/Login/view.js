@@ -1,10 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
-import { useDispatch,useSelector,shallowEqual } from 'react-redux';
-
-import * as ActionType from '../../Redux/actionTypes';
+import { useDispatch } from 'react-redux';
 
 /* actions */
+import { showError } from '../../Redux/actions/gloabl';
 import { login } from './state/actions';
 
 /* style */
@@ -14,8 +13,6 @@ import './style.scss';
 function Login() {
 
    const dispatch = useDispatch();
-
-   const store = useSelector(state => state, shallowEqual);
     
    const [name,setName] = useState('');
 
@@ -26,15 +23,17 @@ function Login() {
       e.preventDefault();
       
       /* 检测数据 */
-      // if(!checkName(name)){
+      if(!checkName(name)){
    
-      //    return;
-      // }
+         dispatch(showError('请输入正确的用户名，4到16位，字母，数字，下划线，减号。'));
+         return;
+      }
 
-      // if(!checkPassword(password)){
+      if(!checkPassword(password)){
       
-      //    return;
-      // }
+         dispatch(showError('输入的密码不符合要求，至少6位，至少1个大写字母，1个小写字母，1个数字，1个特殊符号。'));
+         return;
+      }
 
       dispatch(login(name,password));
 
@@ -42,6 +41,7 @@ function Login() {
 
    /* 检测用户名 */
    function checkName(name){
+      /* 4到16位，字母，数字，下划线，减号 */
       const pattern = /^[a-zA-Z0-9_-]{4,16}$/;
       return pattern.test(name);
    }

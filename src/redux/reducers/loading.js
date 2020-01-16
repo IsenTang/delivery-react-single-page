@@ -8,7 +8,7 @@ export default (state = initialState, payload) => {
    case ActionType.SHOW_LOADING:
       
       return {
-         // ...state,
+         ...state,
          showLoading: true
       };
    case ActionType.HIDE_LOADING:

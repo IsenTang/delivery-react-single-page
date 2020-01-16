@@ -6,13 +6,15 @@ import  uuidv4  from 'uuid/v4';
 import PrivateRouter from './Common/priviteRouter';
 import routers from './Router/index';
 
-import Loading from './Components/Loading/loading';
+import Loading from './Components/Loading/Loading';
+import ErrorModal from './Components/Modal/Error/ErrorModal';
 
 function App() {
 
    return (
       <div className="App">
          <Loading/>
+         <ErrorModal/>
          <Switch>
             { renderRouter() }
          </Switch>

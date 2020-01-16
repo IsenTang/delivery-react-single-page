@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import { useSelector,shallowEqual } from 'react-redux';
 import loadingImage from '../../Assets/loading.gif';
 
@@ -8,7 +7,7 @@ import './style.scss';
 /* Loading页面 */
 function Loading(){
 
-   const isLoading = useSelector(state => state.loading.showLoading);
+   const isLoading = useSelector(state => state.loading.showLoading,shallowEqual);
 
    return (
       <div >

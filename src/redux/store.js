@@ -5,7 +5,6 @@ import { routerMiddleware } from 'connected-react-router';
 
 import { createBrowserHistory } from 'history';
 import monitorReducersEnhancer from './enhancers/monitorReducers';
-import loggerMiddleware from './middlewares/logger';
 import rootReducer from './reducers';
 
 /* 浏览器history */
@@ -15,7 +14,7 @@ export const history = createBrowserHistory();
 export default function configureStore(preloadedState) {
 
    /* 中间件 */
-   const middlewares = [loggerMiddleware,thunk,routerMiddleware(history)];
+   const middlewares = [thunk,routerMiddleware(history)];
    const middlewareEnhancer = applyMiddleware(...middlewares);
 
    /* 插件 */

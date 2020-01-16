@@ -1,6 +1,7 @@
 // import { push } from 'connected-react-router';
 import * as ActionType from '../../../Redux/actionTypes';
 import { checkLogin } from '../../../Requests/login';
+import { showError } from '../../../Redux/actions/gloabl';
 
 /* 登录 */
 export function login(name,password){
@@ -20,12 +21,8 @@ export function login(name,password){
     
       } catch (error) {
     
-         console.log(error);
-         //  dispatch(showError(error.message));
+         dispatch(showError(error.message));
     
-         /*
-        * dispatch({ type: ActionType.CLEAR_VCODE });
-        */
       } finally {
          dispatch({ type: ActionType.HIDE_LOADING });
       }
