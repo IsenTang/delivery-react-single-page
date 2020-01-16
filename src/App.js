@@ -6,9 +6,13 @@ import  uuidv4  from 'uuid/v4';
 import PrivateRouter from './Common/priviteRouter';
 import routers from './Router/index';
 
+import Loading from './Components/Loading/loading';
+
 function App() {
+
    return (
       <div className="App">
+         <Loading/>
          <Switch>
             { renderRouter() }
          </Switch>

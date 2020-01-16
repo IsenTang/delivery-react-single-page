@@ -1,0 +1,37 @@
+@import '../../Styles/color.scss';
+
+.loading-container {
+    z-index:          99;
+    position: fixed;
+    left:            0;
+    top:             0;
+    right:0;
+    bottom:0;
+}
+
+.loading-opacityContainer {
+    height:          100%;
+    width:           100%;
+    background-color: $white;
+    position:        fixed;
+    left:            0;
+    top:             0;
+    right: 0;
+    bottom:0;
+    opacity:         0.5
+}
+
+.loading-image-container{
+    position:fixed;
+    z-index:          100;
+    text-align: center;
+    left:50%;
+    top:50%;
+    margin-top:-50px;
+    margin-left:-50px;
+}
+.loading-image {
+    
+    width:  30;
+    height: 30
+}

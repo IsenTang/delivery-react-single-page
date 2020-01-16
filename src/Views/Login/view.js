@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector,shallowEqual } from 'react-redux';
+
+import * as ActionType from '../../Redux/actionTypes';
 
 /* actions */
 import { login } from './state/actions';
@@ -12,6 +14,8 @@ import './style.scss';
 function Login() {
 
    const dispatch = useDispatch();
+
+   const store = useSelector(state => state, shallowEqual);
     
    const [name,setName] = useState('');
 
@@ -23,12 +27,12 @@ function Login() {
       
       /* 检测数据 */
       // if(!checkName(name)){
-      //    console.log('name error');
+   
       //    return;
       // }
 
       // if(!checkPassword(password)){
-      //    console.log('password error');
+      
       //    return;
       // }
 

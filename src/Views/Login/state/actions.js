@@ -5,11 +5,11 @@ import { checkLogin } from '../../../Requests/login';
 /* 登录 */
 export function login(name,password){
     
-   return async(dispatch, getState) => {
+   return async(dispatch) => {
 
       /* show loading */
       dispatch({ type: ActionType.SHOW_LOADING });
-    
+
       try {
     
          /* check login */
