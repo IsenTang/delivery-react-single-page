@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { useDispatch,useSelector,shallowEqual } from 'react-redux';
 import intl from 'react-intl-universal';
 import Modal from 'react-modal';
@@ -34,6 +34,7 @@ function Login () {
 
    const dispatch = useDispatch();
 
+   /* state */
    const [ name,setName ] = useState('');
 
    const [ password,setPassword ] = useState('');
@@ -44,7 +45,10 @@ function Login () {
 
    const [ comfirmSignUpPassword,setComfirmSignUpPassword ] = useState('');
 
+   /* store */
    const isShow = useSelector(state => state.login.isShow,shallowEqual);
+
+   useSelector(state => state.language.language);
 
    /* 检测用户名 */
    function checkName (name){

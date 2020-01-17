@@ -21,3 +21,6 @@ export const SHOW_SIGNUPMODAL = 'SHOW_SIGNUPMODAL';
 
 export const HIDE_SIGNUPMODAL = 'HIDE_SIGNUPMODAL';
 
+/* 语言 */
+export const CHANGE_LANGUAGE = 'CHANGE_LANGUAGE';
+

@@ -13,6 +13,7 @@ import { get,set } from './Common/utils';
 import Loading from './Components/Loading/Loading';
 import ErrorModal from './Components/Modal/Error/ErrorModal';
 import Alert from './Components/Modal/Alert/Alert';
+import Header from './Components/Header/Header';
 
 const locales = {
    'en-US': require('./Common/i18n/en-US.json'),
@@ -64,9 +65,11 @@ function App () {
             <Loading/>
             <ErrorModal/>
             <Alert/>
-            <Switch>
-               { renderRouter() }
-            </Switch>
+            <Header>
+               <Switch>
+                  { renderRouter() }
+               </Switch>
+            </Header>
          </div> : <Loading showLoading={ true }/>
    );
 }

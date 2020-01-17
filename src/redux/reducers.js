@@ -7,6 +7,7 @@ import { connectRouter } from 'connected-react-router';
 import loading from './reducers/loading';
 import error from './reducers/error';
 import alert from './reducers/alert';
+import language from './reducers/language';
 
 /* pages */
 import login from '../Views/Login/state/reducers';
@@ -16,6 +17,7 @@ const rootReducer = (history) => combineReducers({
    loading,
    error,
    alert,
+   language,
    login
 });
 
