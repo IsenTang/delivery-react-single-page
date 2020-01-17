@@ -25,6 +25,13 @@
         "semi": ["error", "always"],
         "quotes": [2, "single"],
         "no-native-reassign": 2,
-        "object-curly-spacing":["error","always"]
+        "object-curly-spacing":["error","always"],
+        "space-before-function-paren": "error",
+        "no-trailing-spaces": 2, 
+        "no-irregular-whitespace": 2,
+        "array-bracket-spacing": ["error", "always"],
+        "react/jsx-curly-spacing": [2, {"when": "always", "spacing": {
+            "objectLiterals": "never"
+        }}]
     }
 }
