@@ -4,7 +4,7 @@ import intl from 'react-intl-universal';
 /**
  * custom error
  */
-export default function CustomError(err) {
+export default function CustomError (err) {
 
    /* First save the extra info */
    this.details = _.get(err, 'response.data.details');

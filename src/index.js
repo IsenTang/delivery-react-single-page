@@ -13,8 +13,8 @@ const store = configureStore();
 
 const renderApp = () =>
    render(
-      <Provider store={store}>
-         <ConnectedRouter history={history}>
+      <Provider store={ store }>
+         <ConnectedRouter history={ history }>
             <App />
          </ConnectedRouter>
       </Provider>,

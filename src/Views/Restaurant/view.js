@@ -1,7 +1,7 @@
 import React from 'react';
 
 /* 登录页面 */
-function Restaurants() {
+function Restaurants () {
    return (
       <div >
          <div> 餐馆 </div>

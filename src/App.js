@@ -12,43 +12,44 @@ import { get,set } from './Common/utils';
 
 import Loading from './Components/Loading/Loading';
 import ErrorModal from './Components/Modal/Error/ErrorModal';
+import Alert from './Components/Modal/Alert/Alert';
 
 const locales = {
    'en-US': require('./Common/i18n/en-US.json'),
    'zh-CN': require('./Common/i18n/zh-CN.json')
 };
 
-function App() {
-   
+function App () {
+
    const [ initDone,setInitDone ] = useState(false);
 
    useMount(()=>{
-      
+
       loadLocales();
    });
 
-   function loadLocales() {
+   function loadLocales () {
 
       /* init method will load CLDR locale data according to currentLocale
     react-intl-universal is singleton, so you should init it only once in your app*/
-      const lang =  get('lang');
-   
+      const lang =  get('language');
+
       let initLang = 'zh-CN';
-   
+
       if (!_.isEmpty(lang)) {
          initLang = lang;
       } else {
-   
+
          /* set language to local storage */
-         set('lang', initLang);
+         set('language', initLang);
       }
-   
+
       intl.init({
          currentLocale: initLang,
          locales
       })
          .then(() => {
-   
+
             /* After loading CLDR locale data, start to render*/
             setInterval(()=>{
                setInitDone(true);
@@ -62,24 +63,25 @@ function App() {
          <div className="App">
             <Loading/>
             <ErrorModal/>
+            <Alert/>
             <Switch>
                { renderRouter() }
             </Switch>
-         </div> : <Loading showLoading={true}/>
+         </div> : <Loading showLoading={ true }/>
    );
 }
 
-function renderRouter(){
+function renderRouter (){
 
    const array = _.map(routers, (r) => (
 
-      <PrivateRouter key={uuidv4()} component={r.component}
-         exact={!!r.exact}
-         path={r.path}
+      <PrivateRouter key={ uuidv4() } component={ r.component }
+         exact={ !!r.exact }
+         path={ r.path }
       />
    ));
 
-   array.push(<Redirect key={uuidv4()} path="/" exact={true} to="/restaurant" />);
+   array.push(<Redirect key={ uuidv4() } path="/" exact={ true } to="/restaurant" />);
 
    return array;
 }

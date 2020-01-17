@@ -1,6 +1,6 @@
 
 /* localstorage get */
-export function get(data){
+export function get (data){
    const result = localStorage.getItem(data);
 
    try {
@@ -11,7 +11,7 @@ export function get(data){
 }
 
 /* localstorage set */
-export function set(name, data){
+export function set (name, data){
 
    localStorage.setItem(name, JSON.stringify(data));
 }

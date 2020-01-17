@@ -6,7 +6,7 @@ import loadingImage from '../../Assets/loading.gif';
 import './style.scss';
 
 /* Loading页面 */
-function Loading({ showLoading }){
+function Loading ({ showLoading }){
 
    const isLoading = useSelector(state => state.loading.showLoading,shallowEqual);
 
@@ -16,7 +16,7 @@ function Loading({ showLoading }){
             <div className='loading-container' >
                <div className='loading-opacityContainer' />
                <div className='loading-image-container'>
-                  <img src={loadingImage} className='loading-image' />
+                  <img src={ loadingImage } className='loading-image' />
                </div>
             </div> :
             null}

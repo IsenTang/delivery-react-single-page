@@ -2,7 +2,7 @@ import _ from 'lodash';
 import * as ActionType from '../../../../Redux/actionTypes';
 
 /* 关闭错误modal */
-export function closeErrorModal (closeFunc){
+export function closeAlert (closeFunc){
 
    return async (dispatch) => {
 
@@ -11,6 +11,6 @@ export function closeErrorModal (closeFunc){
          await closeFunc();
       }
 
-      dispatch({ type:ActionType.HIDE_ERROR });
+      dispatch({ type:ActionType.HIDE_ALERT });
    };
 }

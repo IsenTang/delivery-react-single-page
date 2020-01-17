@@ -41,7 +41,7 @@ const fetch = (options) => {
          domin = val;
          url = url.slice(domin.length);
       }
-   
+
       const match = parse(url);
 
       url = compile(url)(data);
@@ -78,7 +78,7 @@ const fetch = (options) => {
 /**
  * Default request function
  */
-export default async function request(options) {
+export default async function request (options) {
 
    try {
       const res = await fetch(options);

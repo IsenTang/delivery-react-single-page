@@ -11,14 +11,14 @@ import rootReducer from './reducers';
 export const history = createBrowserHistory();
 
 /* 自定义store */
-export default function configureStore(preloadedState) {
+export default function configureStore (preloadedState) {
 
    /* 中间件 */
-   const middlewares = [thunk,routerMiddleware(history)];
+   const middlewares = [ thunk,routerMiddleware(history) ];
    const middlewareEnhancer = applyMiddleware(...middlewares);
 
    /* 插件 */
-   const enhancers = [middlewareEnhancer, monitorReducersEnhancer];
+   const enhancers = [ middlewareEnhancer, monitorReducersEnhancer ];
    const composedEnhancers = composeWithDevTools(...enhancers);
 
    /* 创建store */

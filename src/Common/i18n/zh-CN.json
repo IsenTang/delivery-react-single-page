@@ -1,4 +1,13 @@
 {
     "login.error.name":"请输入正确的用户名，4到16位，字母，数字，下划线，减号。",
-    "login.error.password":"输入的密码不符合要求，至少6位，至少1个大写字母，1个小写字母，1个数字，1个特殊符号。"
+    "login.error.password":"输入的密码不符合要求，至少6位，至少1个大写字母，1个小写字母，1个数字，1个特殊符号。",
+    "login.error.comfirmPassword":"两次输入的密码不一致，请重新输入",
+    "login.username":"用户名",
+    "login.password":"密码",
+    "login.login":"登录",
+    "login.signUp":"注册",
+    "login.confirmPassword":"确认",
+    "login.signUpSuccess":"注册成功。",
+
+    "close":"关闭"
 }

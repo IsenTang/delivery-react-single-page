@@ -2,7 +2,7 @@ import _ from 'lodash';
 import * as ActionType from '../actionTypes';
 
 const initialState = {
-   showError: false ,
+   isShow: false ,
    message:'',
    closeFunc: _.noop()
 };
@@ -10,18 +10,18 @@ const initialState = {
 export default (state = initialState, payload) => {
 
    switch (payload.type) {
-   case ActionType.SHOW_ERROR:
+   case ActionType.SHOW_ALERT:
 
       return {
          ...state,
-         showError: true,
+         isShow: true,
          message:payload.message,
          closeFunc: payload.closeFunc || _.noop()
       };
-   case ActionType.HIDE_ERROR:
+   case ActionType.HIDE_ALERT:
       return {
          ...state,
-         showError: false
+         isShow: false
       };
    default:
       return state;

@@ -6,7 +6,7 @@ export default (state = initialState, payload) => {
 
    switch (payload.type) {
    case ActionType.SHOW_LOADING:
-      
+
       return {
          ...state,
          showLoading: true

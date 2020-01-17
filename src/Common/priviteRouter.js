@@ -34,11 +34,11 @@ const PrivateRouter = ({ component: Component, ...rest }) => {
    }
 
    return (
-      <Route {...rest} render={(props) => (
+      <Route { ...rest } render={ (props) => (
          flag  ?
-            <Component {...props} /> :
-            <Redirect to={redirectAddress} />
-      )} />
+            <Component { ...props } /> :
+            <Redirect to={ redirectAddress } />
+      ) } />
    );
 };
 
