@@ -29,6 +29,11 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
+    "stylelint": "^13.0.0",
+    "stylelint-config-recess-order": "^2.0.3",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-order": "^4.0.0",
+    "stylelint-scss": "^3.13.0",
     "uuid": "^3.3.3"
   },
   "scripts": {
