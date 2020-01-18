@@ -1,7 +1,11 @@
-.center-box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: calc(100vh);
+@import './size.scss';
+@import './color.scss';
+
+/* 居中box */
+.center-box {
+  display : flex;
+  align-items : center;
+  justify-content : center;
+  width : 100%;
+  height : calc(100vh - #{$header-height} - 53px);
 }

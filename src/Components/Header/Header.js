@@ -4,7 +4,11 @@ import { useSelector } from 'react-redux';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
+/* components */
 import ProfileDropDown from './components/ProfileDropDown';
+
+/* style */
+import './style.scss';
 
 function Header ({ children }){
 
@@ -19,7 +23,7 @@ function Header ({ children }){
    }
 
    return (
-      <div style={{ height: '100%' }}>
+      <div >
          <div className='header'>
             <div className={ classnames('containerBetween', 'vertical', 'left') }>
                <img className='logo' src={ require('../../Assets/logo.png') }/>

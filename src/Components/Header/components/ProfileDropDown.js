@@ -7,7 +7,10 @@ import  uuidv4  from 'uuid/v4';
 import { useDispatch,useSelector } from 'react-redux';
 
 import { get } from '../../../Common/utils';
+
+/* actions */
 import { changeLanguage } from '../state/actions';
+import { goLogin } from '../../../Redux/actions/gloabl';
 
 function ProfileDropDown ({ closeDropDown }){
 
@@ -16,6 +19,9 @@ function ProfileDropDown ({ closeDropDown }){
    const [ wrapperRef,setWrapperRef ] = useState();
 
    useSelector(state => state.language.language);
+
+   /* 获取当前页面路径 */
+   const path =  useSelector(state => state.router.location.pathname);
 
    /* 用户信息 */
    const user = get('user');
@@ -43,6 +49,7 @@ function ProfileDropDown ({ closeDropDown }){
 
    }
 
+   /* add listener & remove listener */
    useEffect(() => {
       document.addEventListener('mousedown', handleClickOutside);
       return () => {
@@ -50,10 +57,11 @@ function ProfileDropDown ({ closeDropDown }){
       };
    });
 
+   /* 切换语言button */
    const langButtons = _.map(lang, (l) => {
       let id = '';
 
-      if (l.code === language) { id = 'b-b-w-w'; }
+      if (l.code === language) { id = 'on-choose'; }
 
       return <button id={ id } key={ uuidv4() } type='button' onClick = { () => onClickLanguage(l.code) }>
          {l.show}
@@ -61,12 +69,13 @@ function ProfileDropDown ({ closeDropDown }){
    });
 
    return (
-      <div className='profile-dd' ref={ (e)=>{ setWrapperRef(e); } }>
+      <div className='profile-drop-down' ref={ (e)=>{ setWrapperRef(e); } }>
 
-         { !_.isEmpty(user) ?
+         {/* 如果没有登录，或者在登录页面，不显示登录按钮 */}
+         { !_.isEmpty(user) || (path == '/login') ?
             null :
-            <button className='profile-button' type='button' onClick={ () => {  } }>
-               {intl.get('login')}
+            <button className='profile-button' type='button' onClick={ () => { closeDropDown(); dispatch(goLogin()); } }>
+               {intl.get('login.login')}
             </button>
          }
          <div className='language-button'>

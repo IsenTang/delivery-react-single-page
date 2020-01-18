@@ -1,13 +1,40 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import './Styles/color.scss';
+
+/* 初始化style */
+#root {
+  width : 100%;
+  height : 100%;
+  margin : auto;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  height : 100%;
+  padding : 0;
+  margin : 0;
+  font-family : sans-serif;
+  background-color : $backgroundColor;
+}
+
+div {
+  cursor : default;
+}
+
+button {
+  cursor : pointer;
+}
+
+html {
+  height : 100%;
+}
+
+input{
+  border-style : hidden;
+}
+
+input:focus, button:focus {
+  outline :none;
+}
+
+.App{
+  padding : 0 50px;
 }
