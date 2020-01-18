@@ -11,6 +11,7 @@ import './style.scss';
 
 const customStyles = {
    content : {
+      /* stylelint-disable */
       top  : '50%',
       right  : 'auto',
       bottom  : 'auto',
