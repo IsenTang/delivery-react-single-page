@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch,useSelector,shallowEqual } from 'react-redux';
+import classnames from 'classnames';
 import intl from 'react-intl-universal';
 import Modal from 'react-modal';
 
@@ -154,12 +155,22 @@ function Login () {
    return (
       <div className="center-box">
          <div>
-            <div> {intl.get('login.username')} <input autoFocus onChange={ onChangeName } value={ name }></input></div>
-            <div> {intl.get('login.password')} <input type="password" onChange={ onChangePassword } value={ password }></input></div>
-            <button onClick={ handleLogin }> {intl.get('login.login')}</button>
-            <button onClick={ openSignUpModal }> {intl.get('login.signUp')}</button>
-         </div>
+            <div className={ classnames('input-box','login-input-view') }>
+               <div className='input-title'> {intl.get('login.username')} </div>
+               <div>
+                  <input autoFocus onChange={ onChangeName } value={ name } className='input'></input>
+               </div>
+            </div>
+            <div className="input-box">
+               <div className='input-title'> {intl.get('login.password')} </div>
+               <input type="password" onChange={ onChangePassword } value={ password } className='input'></input>
+            </div>
 
+            <div className={ classnames('login-btn-view','containerCol','vertical') }>
+               <button onClick={ handleLogin } className={ classnames('normal-btn','login-btn') }> {intl.get('login.login')}</button>
+               <button onClick={ openSignUpModal } className={ classnames('normal-btn','signUp-btn') }> {intl.get('login.signUp')}</button>
+            </div>
+         </div>
          <Modal
             isOpen = { isShow }
             style={ customStyles }

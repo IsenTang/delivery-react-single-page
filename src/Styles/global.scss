@@ -1,6 +1,93 @@
 @import './size.scss';
 @import './color.scss';
 
+
+.h2 {
+  font-family : PingFangSC-Semibold;
+  font-size : 40px;
+  font-style : normal;
+  font-weight : 600;
+  font-stretch : normal;
+  line-height : 1.25;
+  letter-spacing : normal;
+}
+
+.h3 {
+  font-family : PingFangSC-Regular;
+  font-size : 25px;
+  font-style : normal;
+  font-weight : normal;
+  font-stretch : normal;
+  line-height : 1.5;
+  letter-spacing : normal;
+}
+
+.text {
+  font-family : PingFangSC-Regular;
+  font-style : normal;
+  font-weight : 600;
+  font-stretch : normal;
+  line-height : 1.5;
+  color :$black;
+  letter-spacing : normal;
+}
+
+/**横向布局**/
+
+.containerRow {
+  display : flex;
+  flex-direction : row;
+}
+
+/**横向左右布局**/
+
+.containerBetween {
+  display : flex;
+  flex-direction : row;
+  justify-content : space-between;
+}
+
+/**横向居中布局**/
+
+.containerRowCenter {
+  display : flex;
+  flex-direction : row;
+  justify-content : center;
+}
+
+.containerRowAlign {
+  display : flex;
+  flex-direction : row;
+  align-items : center;
+}
+
+/**纵向布局**/
+
+.containerCol {
+  display : flex;
+  flex-direction : column;
+}
+
+/**垂直居中，水平居中**/
+
+.verticalhorizontally {
+  align-items : center;
+  justify-content : center;
+}
+
+.vertical {
+  align-items : center;
+}
+
+.horizontally {
+  justify-content : center;
+}
+
+.space-between {
+  justify-content : space-between;
+}
+
+// =============================================
 /* 居中box */
 .center-box {
   display : flex;
@@ -8,4 +95,36 @@
   justify-content : center;
   width : 100%;
   height : calc(100vh - #{$header-height} - 53px);
+}
+
+/* 输入box */
+.input-box{
+  display : flex;
+  flex-direction : row;
+  justify-content : space-between;
+}
+
+.input-title{
+  @extend .h3;// 最后一行俩端对齐
+  
+}
+
+.input{
+  width : 300px;
+  @extend .h3;
+  margin-left : 25px;
+  line-height : 1.5;
+  text-align : center !important;
+  background-color : transparent;
+  border-bottom : 2px solid $black;
+}
+
+.normal-btn{
+    height : 30px;
+    padding : 5px 18px;
+    font-size : 14px;
+    color : white;
+    background : $black;
+    border : 0;
+    border-radius : 25px;
 }

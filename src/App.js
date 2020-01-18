@@ -52,9 +52,9 @@ function App () {
          .then(() => {
 
             /* After loading CLDR locale data, start to render*/
-            setInterval(()=>{
-               setInitDone(true);
-            },2000);
+            // setInterval(()=>{
+            setInitDone(true);
+            // },2000);
 
          });
    }

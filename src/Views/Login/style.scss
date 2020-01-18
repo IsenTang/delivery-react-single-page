@@ -1,1 +1,21 @@
-@import '../../Styles/global.scss'
+@import '../../Styles/global.scss';
+
+.login-input-view{
+    width : 450px;
+}
+
+.login-btn-view{
+    width : 450px;
+}
+
+.login-btn{
+    width : 300px;
+    margin-top : 30px;
+}
+
+.signUp-btn{
+    width : 300px;
+    margin-top : 30px;
+    color :$black;
+    background-color : white;
+}

@@ -1,20 +1,24 @@
 import React from 'react';
 import Modal from 'react-modal';
+import classnames from 'classnames';
 import { useSelector,shallowEqual,useDispatch } from 'react-redux';
 
 /* actions */
 import { closeErrorModal } from './state/actions';
 
+/* style */
+import './style.scss';
+
 const customStyles = {
    content : {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      transform             : 'translate(-50%, -50%)'
+      top  : '50%',
+      right  : 'auto',
+      bottom  : 'auto',
+      left  : '50%',
+      marginRight  : '-50%',
+      transform  : 'translate(-50%, -50%)'
    },
-   overlay: { zIndex: 90 }
+   overlay: { zIndex : 90 }
 };
 
 function ErrorModal (){
@@ -37,8 +41,10 @@ function ErrorModal (){
          style={ customStyles }
          onRequestClose = { closeModal }
       >
-         <div>{message}</div>
-         <button onClick={ closeModal }>关闭</button>
+         <div className={ classnames('error-modal-box','containerCol','vertical','space-between') }>
+            <div>{message}</div>
+            <button onClick={ closeModal } className={ classnames('normal-btn','error-btn') }>关闭</button>
+         </div>
       </Modal>
    );
 }
