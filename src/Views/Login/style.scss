@@ -1,10 +1,10 @@
 @import '../../Styles/global.scss';
 
-.login-input-view{
+.login-input-box{
     width : 450px;
 }
 
-.login-btn-view{
+.login-btn-box{
     width : 450px;
 }
 
@@ -13,9 +13,27 @@
     margin-top : 30px;
 }
 
-.signUp-btn{
+.sign-up-btn{
     width : 300px;
     margin-top : 30px;
     color :$black;
     background-color : white;
+}
+
+.sign-up-modal{
+    width : 600px;
+    height : 600px;
+}
+
+.sign-up-type-in{
+    height : 200px;
+    margin-top : 100px;
+}
+
+.sign-up-type-input{
+    margin-top : 50px;
+}
+
+.sign-up-btn-box{
+    margin-bottom : 50px;
 }

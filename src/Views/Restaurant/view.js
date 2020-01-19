@@ -1,6 +1,6 @@
 import React from 'react';
 
-/* 登录页面 */
+/* 餐馆页面 */
 function Restaurants () {
    return (
       <div >

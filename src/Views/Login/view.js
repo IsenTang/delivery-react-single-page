@@ -155,7 +155,7 @@ function Login () {
    return (
       <div className="center-box">
          <div>
-            <div className={ classnames('input-box','login-input-view') }>
+            <div className={ classnames('input-box','login-input-box') }>
                <div className='input-title'> {intl.get('login.username')} </div>
                <div>
                   <input autoFocus onChange={ onChangeName } value={ name } className='input'></input>
@@ -166,21 +166,38 @@ function Login () {
                <input type="password" onChange={ onChangePassword } value={ password } className='input'></input>
             </div>
 
-            <div className={ classnames('login-btn-view','containerCol','vertical') }>
+            <div className={ classnames('login-btn-box','containerCol','vertical') }>
                <button onClick={ handleLogin } className={ classnames('normal-btn','login-btn') }> {intl.get('login.login')}</button>
-               <button onClick={ openSignUpModal } className={ classnames('normal-btn','signUp-btn') }> {intl.get('login.signUp')}</button>
+               <button onClick={ openSignUpModal } className={ classnames('normal-btn','sign-up-btn') }> {intl.get('login.signUp')}</button>
             </div>
          </div>
+
+         {/* 注册modal */}
          <Modal
             isOpen = { isShow }
             style={ customStyles }
             onRequestClose = { closeSignUpModal }
          >
-            <div> {intl.get('login.username')} <input autoFocus onChange={ onChangeSignUpName } value={ signUpName }></input></div>
-            <div> {intl.get('login.password')} <input type="password" onChange={ onChangeSignUpPassword } value={ signUpPassword }></input></div>
-            <div> {intl.get('login.confirmPassword')} <input type="password" onChange={ onChangeConfirmSignUpPassword } value={ comfirmSignUpPassword }></input></div>
-            <button onClick={ handleSignUp }>{intl.get('login.signUp')}</button>
-            <button onClick={ closeSignUpModal }>{intl.get('close')}</button>
+            <div className={ classnames('sign-up-modal','containerCol','vertical','space-between') }>
+               <div className={ classnames('sign-up-type-in') }>
+                  <div className={ classnames('input-box','sign-up-type-input') }>
+                     <div className='input-title'>{intl.get('login.username')}</div>
+                     <input className='input' autoFocus onChange={ onChangeSignUpName } value={ signUpName }></input>
+                  </div>
+                  <div className={ classnames('input-box','sign-up-type-input') }>
+                     <div className='input-title'> {intl.get('login.password')} </div>
+                     <input className='input' type="password" onChange={ onChangeSignUpPassword } value={ signUpPassword }></input>
+                  </div>
+                  <div className={ classnames('input-box','sign-up-type-input') }>
+                     <div className='input-title'> {intl.get('login.confirmPassword')} </div>
+                     <input className='input' type="password" onChange={ onChangeConfirmSignUpPassword } value={ comfirmSignUpPassword }></input>
+                  </div>
+               </div>
+               <div className={ classnames('containerCol','vertical','space-between','sign-up-btn-box') }>
+                  <button className={ classnames('normal-btn','login-btn') } onClick={ handleSignUp }>{intl.get('login.signUp')}</button>
+                  {/* <button className={ classnames('normal-btn','signUp-btn') } onClick={ closeSignUpModal }>{intl.get('close')}</button> */}
+               </div>
+            </div>
          </Modal>
       </div>
    );
