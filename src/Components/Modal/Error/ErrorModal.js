@@ -9,6 +9,8 @@ import { closeErrorModal } from './state/actions';
 /* style */
 import './style.scss';
 
+Modal.setAppElement('#root');
+
 const customStyles = {
    content : {
       /* stylelint-disable */

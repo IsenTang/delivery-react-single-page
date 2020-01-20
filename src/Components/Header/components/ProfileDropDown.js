@@ -3,6 +3,7 @@ import { useEffect,useState } from 'react';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import intl from 'react-intl-universal';
+import classnames from 'classnames';
 import  uuidv4  from 'uuid/v4';
 import { useDispatch,useSelector } from 'react-redux';
 
@@ -10,7 +11,7 @@ import { get } from '../../../Common/utils';
 
 /* actions */
 import { changeLanguage } from '../state/actions';
-import { goLogin } from '../../../Redux/actions/gloabl';
+import { goLogin,loginOut } from '../../../Redux/actions/gloabl';
 
 function ProfileDropDown ({ closeDropDown }){
 
@@ -82,7 +83,7 @@ function ProfileDropDown ({ closeDropDown }){
             {langButtons}
          </div>
          { !_.isEmpty(user) ?
-            <button className='profile-button log-out' type='button' onClick={ this.handleLogout }>
+            <button className={ classnames('profile-button log-out') } type='button' onClick={ ()=>{ dispatch(loginOut()); } }>
                {intl.get('logout')}
             </button> :
             null}

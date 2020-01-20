@@ -9,5 +9,6 @@
     "login.confirmPassword":"确认",
     "login.signUpSuccess":"注册成功。",
 
+    "logout":"登 出",
     "close":"关闭"
 }

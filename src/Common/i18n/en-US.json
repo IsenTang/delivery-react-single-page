@@ -9,5 +9,6 @@
     "login.confirmPassword":"Comfirm",
     "login.signUpSuccess":"Sign up success .",
 
+    "logout":"Log out",
     "close":"Close"
 }
