@@ -5,7 +5,8 @@
             "es6":true
     },
     "plugins": [
-        "react"
+        "react",
+        "react-app"
      ],
      "settings":{
         "react":{
