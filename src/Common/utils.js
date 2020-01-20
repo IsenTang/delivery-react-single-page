@@ -1,3 +1,4 @@
+import _ from 'lodash';
 
 /* localstorage get */
 export function get (data){
@@ -14,4 +15,11 @@ export function get (data){
 export function set (name, data){
 
    localStorage.setItem(name, JSON.stringify(data));
+}
+
+/* 获取对应语言信息 */
+export function getLanguageInfo (item,property){
+
+   const language = get('language');
+   return _.get(item,`${property}[${language}]`);
 }

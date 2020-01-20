@@ -14,6 +14,7 @@ const fetch = (options) => {
 
    let { url } = options;
    const { data = {}, headers = {}, method } = options;
+   console.log(url);
 
    /* Append User Token if any */
    /* Has to get store instance in the function, putting on top will cause error */
@@ -43,6 +44,8 @@ const fetch = (options) => {
       }
 
       const match = parse(url);
+
+      // console.log(match);
 
       url = compile(url)(data);
 

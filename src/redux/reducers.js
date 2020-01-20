@@ -11,6 +11,7 @@ import language from './reducers/language';
 
 /* pages */
 import login from '../Views/Login/state/reducers';
+import restaurant from '../Views/Restaurant/state/reducers';
 
 const rootReducer = (history) => combineReducers({
    router: connectRouter(history),
@@ -18,7 +19,8 @@ const rootReducer = (history) => combineReducers({
    error,
    alert,
    language,
-   login
+   login,
+   restaurant
 });
 
 export default rootReducer;

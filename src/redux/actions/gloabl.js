@@ -27,3 +27,11 @@ export function goLogin (){
       dispatch(push('/login'));
    };
 }
+
+export function loginOut (){
+
+   return async (dispatch) => {
+
+      // dispatch(push('/login'));
+   };
+}

@@ -24,13 +24,14 @@ export function login (username,password){
 
          set('user',user);
 
+         dispatch(push('/restaurant'));
+
       } catch (error) {
 
          dispatch(showError(error.message));
 
       } finally {
 
-         dispatch(push('/restaurant'));
          dispatch({ type: ActionType.HIDE_LOADING });
       }
    };
