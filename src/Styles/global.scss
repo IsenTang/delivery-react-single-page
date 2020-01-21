@@ -32,6 +32,31 @@
   letter-spacing : normal;
 }
 
+/* title */
+.titleText {
+  font-family : PingFangSC-Regular;
+  font-size : 30px;
+  font-style : normal;
+  font-weight : 600;
+  font-stretch : normal;
+  color : $black;
+  letter-spacing : normal;
+  cursor : pointer;
+}
+
+.subTitleText{
+  width : 220px;
+  height : 24px;
+  font-family :PingFangSC-Regular;
+  font-size : 16px;
+  font-style : normal;
+  font-weight : normal;
+  font-stretch : normal;
+  line-height : 1.5;
+  color : #797979;
+  letter-spacing : normal;
+}
+
 /**横向布局**/
 
 .containerRow {

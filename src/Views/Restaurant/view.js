@@ -3,10 +3,12 @@ import { useState,useEffect } from 'react';
 import { useMount } from 'react-use';
 import { useDispatch,useSelector } from 'react-redux';
 import _ from 'lodash';
-import  uuidv4  from 'uuid/v4';
-import moment from 'moment-timezone';
 
-import { getLanguageInfo } from '../../Common/utils';
+/* public */
+import { checkRestaurantClosed } from './public';
+
+/* components */
+import SingleRestaurant from './components/restaurant';
 
 /* actions */
 import { loadRestaurants } from './state/actions';
@@ -24,6 +26,9 @@ function Restaurants (){
 
    let [ rests,setRests ] = useState(null);
 
+   /* store */
+   const language = useSelector(state => state.language.language);
+
    useMount(()=>{
 
       /* 获取restaurants */
@@ -35,7 +40,7 @@ function Restaurants (){
       const restsList = renderRestaurants(restaurants);
 
       setRests(restsList);
-   }, [ restaurants ]);
+   }, [ restaurants,language ]);
 
    /* 餐馆渲染方式 */
    function renderRestaurants (restaurants){
@@ -45,17 +50,20 @@ function Restaurants (){
 
       return (
          <div>
-            { _.isEmpty(restaurants) ? null : <div>
+            {
+               _.isEmpty(restaurants) ? null : <div>
 
-               { _.map(restaurants,(item)=>{
+                  { _.map(restaurants,(item)=>{
 
-                  return (<div key={ uuidv4() }>{ getLanguageInfo(item,'name')}</div>);
-               }) }
-            </div>}
+                     return (<SingleRestaurant restaurant={ item }/>);
+                  }) }
+               </div>
+            }
          </div>
       );
    }
 
+   /* 餐馆排序 */
    function sortRestaurants (restaurants){
 
       const openArray = [];
@@ -81,47 +89,8 @@ function Restaurants (){
 
    }
 
-   /* 检查是否关门 */
-   function checkRestaurantClosed (restaurant) {
-
-      const closed = _.get(restaurant, 'closed', null);
-
-      /* if manually set closed */
-      if (closed !== null) {
-         return false;
-      }
-
-      const timezone = _.get(restaurant, 'timezone');
-
-      /* 获取当地时间 */
-      const localTime = moment().tz(timezone).hours() *
-      60 + moment().tz(timezone).minutes();
-
-      const dayOfWeek = moment().tz(timezone).isoWeekday();
-
-      const index = dayOfWeek - 1;
-
-      const restaurantTime = _.get(restaurant, `hours[${index}]`);
-
-      /* 开始时间 */
-      const start = _.get(restaurantTime, 'start');
-
-      /* 结束时间 */
-      const end = _.get(restaurantTime, 'end');
-
-      /* 如果当地时间比结束时间晚，或者当地时间比开始时间早，意味着关门 */
-      if (localTime > end || localTime < start) {
-
-         return false;
-      }
-
-      return true;
-
-   }
-
    return (
       <div className="center-box">
-         <div>  restaurant </div>
          <div>  {rests} </div>
       </div>
    );
