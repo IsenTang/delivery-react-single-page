@@ -8,7 +8,7 @@ import _ from 'lodash';
 import { checkRestaurantClosed } from './public';
 
 /* components */
-import SingleRestaurant from './components/restaurant';
+import SingleRestaurant from './components/Restaurant';
 
 /* actions */
 import { loadRestaurants } from './state/actions';
@@ -55,7 +55,11 @@ function Restaurants (){
 
                   { _.map(restaurants,(item)=>{
 
-                     return (<SingleRestaurant restaurant={ item }/>);
+                     return (
+
+                        <SingleRestaurant restaurant={ item }/>
+
+                     );
                   }) }
                </div>
             }
@@ -90,7 +94,7 @@ function Restaurants (){
    }
 
    return (
-      <div className="center-box">
+      <div >
          <div>  {rests} </div>
       </div>
    );
