@@ -32,7 +32,8 @@ function Header ({ children }){
                <img
                   className='profile-logo'
                   onClick = { showProfile }
-                  src={ require('../../Assets/profile-icon.png') }/>
+                  src={ require('../../Assets/profile-icon.png') }
+               />
                {isProfileShow ? <ProfileDropDown closeDropDown={ ()=>{ setIsProfileShow(false); } }/> : null}
             </div>
          </div>

@@ -20,6 +20,8 @@ export const CHANGE_LANGUAGE = 'CHANGE_LANGUAGE';
 /* 登录 */
 export const SAVE_USER = 'SAVE_USER';
 
+export const CLEAR_USER = 'CLEAR_USER';
+
 export const SHOW_SIGNUPMODAL = 'SHOW_SIGNUPMODAL';
 
 export const HIDE_SIGNUPMODAL = 'HIDE_SIGNUPMODAL';

@@ -29,8 +29,14 @@ function DishFood ({ image,height,width }){
 
 DishFood.propTypes = {
    image: PropTypes.string.isRequired,
-   height: PropTypes.number.isRequired,
-   width: PropTypes.number.isRequired
+   height: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string,
+   ]),
+   width: PropTypes.oneOfType([
+      PropTypes.number.isRequired,
+      PropTypes.string.isRequired,
+   ])
 };
 
 export default DishFood;

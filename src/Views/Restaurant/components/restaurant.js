@@ -72,7 +72,7 @@ function SingleRestaurant ({ restaurant }){
             />
 
          </div>
-         <div className='img-box-2' id={ `img-box-2-${uuid}` }>
+         <div className={ classnames('img-box-2',showName ? 'img-box-2-go-left' : '') } id={ `img-box-2-${uuid}` }>
             <div className={ 'rest-food-name' }>{showName ?
                _.get(restaurant, `items[1].name[${language}]`, defaultItems[1].name[`${language}`]) : ''}
             </div>

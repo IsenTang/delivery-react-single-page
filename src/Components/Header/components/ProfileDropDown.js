@@ -11,7 +11,7 @@ import { get } from '../../../Common/utils';
 
 /* actions */
 import { changeLanguage } from '../state/actions';
-import { goLogin,loginOut } from '../../../Redux/actions/gloabl';
+import { goLogin,logOut } from '../../../Redux/actions/gloabl';
 
 function ProfileDropDown ({ closeDropDown }){
 
@@ -19,14 +19,13 @@ function ProfileDropDown ({ closeDropDown }){
 
    const [ wrapperRef,setWrapperRef ] = useState();
 
-   useSelector(state => state.language.language);
-
    /* 获取当前页面路径 */
    const path =  useSelector(state => state.router.location.pathname);
 
    /* 用户信息 */
-   const user = get('user');
-   const language = get('language');
+   const language = useSelector(state => state.language.language);
+
+   const user = useSelector(state => state.login.user);
 
    const lang = [
       { code: 'zh-CN', show: '中' },
@@ -83,7 +82,7 @@ function ProfileDropDown ({ closeDropDown }){
             {langButtons}
          </div>
          { !_.isEmpty(user) ?
-            <button className={ classnames('profile-button log-out') } type='button' onClick={ ()=>{ dispatch(loginOut()); } }>
+            <button className={ classnames('profile-button log-out') } type='button' onClick={ ()=>{ dispatch(logOut()); } }>
                {intl.get('logout')}
             </button> :
             null}

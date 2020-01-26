@@ -44,8 +44,6 @@ const fetch = (options) => {
 
       const match = parse(url);
 
-      // console.log(match);
-
       url = compile(url)(data);
 
       _.forEach(match, item => {

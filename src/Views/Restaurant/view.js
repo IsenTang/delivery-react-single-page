@@ -2,7 +2,10 @@ import React from 'react';
 import { useState,useEffect } from 'react';
 import { useMount } from 'react-use';
 import { useDispatch,useSelector } from 'react-redux';
+import intl from 'react-intl-universal';
 import _ from 'lodash';
+import  uuidv4  from 'uuid/v4';
+import classNames from 'classnames';
 
 /* public */
 import { checkRestaurantClosed } from './public';
@@ -49,20 +52,43 @@ function Restaurants (){
       restaurants = sortRestaurants(restaurants);
 
       return (
-         <div>
-            {
-               _.isEmpty(restaurants) ? null : <div>
+         <div className='all-rest-box'>
+            <div >
+               {
+                  _.isEmpty(restaurants) ? null : <div>
 
-                  { _.map(restaurants,(item)=>{
+                     { _.map(restaurants,(item,index)=>{
+                        if(index % 2 == 0){
+                           return (
+                              <div key={ uuidv4() }>
+                                 <SingleRestaurant restaurant={ item }/>
+                              </div>
 
-                     return (
+                           );
+                        }
 
-                        <SingleRestaurant restaurant={ item }/>
+                     }) }
+                  </div>
+               }
+            </div>
+            <div className='rest-gap'>
+               {
+                  _.isEmpty(restaurants) ? null : <div>
 
-                     );
-                  }) }
-               </div>
-            }
+                     { _.map(restaurants,(item,index)=>{
+                        if(index % 2 != 0){
+                           return (
+                              <div key={ uuidv4() }>
+                                 <SingleRestaurant restaurant={ item }/>
+                              </div>
+
+                           );
+                        }
+
+                     }) }
+                  </div>
+               }
+            </div>
          </div>
       );
    }
@@ -94,8 +120,14 @@ function Restaurants (){
    }
 
    return (
-      <div >
-         <div>  {rests} </div>
+      <div className={ classNames('containerBetween') }>
+         <div className={ classNames('rest-tab') }>
+            <div className='rest-tab-fixed'>
+               {intl.get('restaurant.allRestaurant')}
+               <div className='rectangle'></div>
+            </div>
+         </div>
+         {rests}
       </div>
    );
 }

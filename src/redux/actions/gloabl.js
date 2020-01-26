@@ -1,5 +1,6 @@
 import { push } from 'connected-react-router';
 import * as ActionType from '../actionTypes';
+import { set } from '../../Common/utils';
 
 /* 显示错误modal */
 export function showError (message,closeFunc){
@@ -28,10 +29,12 @@ export function goLogin (){
    };
 }
 
-export function loginOut (){
+export function logOut (){
 
    return async (dispatch) => {
 
-      // dispatch(push('/login'));
+      set('user',null);
+
+      dispatch({ type: ActionType.CLEAR_USER });
    };
 }
