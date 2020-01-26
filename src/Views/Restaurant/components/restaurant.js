@@ -1,5 +1,6 @@
 import React,{ useState } from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import _ from 'lodash';
 import  uuidv4  from 'uuid/v4';
 import classnames from 'classnames';
@@ -9,6 +10,9 @@ import DishFood from '../components/DishFood';
 
 /* utils */
 import { getLanguageInfo,lang,get } from '../../../Common/utils';
+
+/* actions */
+import { goMenu } from '../state/actions';
 
 /* style */
 import './style.scss';
@@ -42,9 +46,11 @@ function SingleRestaurant ({ restaurant }){
 
    const language = get('language');
 
+   const dispatch = useDispatch();
+
    const [ showName,setshowName ] = useState(false);
 
-   const [ uuid,setUuid ] = useState(uuidv4());
+   const [ uuid ] = useState(uuidv4());
 
    /* 渲染餐馆tag */
    const renderTags = () => {
@@ -97,6 +103,7 @@ function SingleRestaurant ({ restaurant }){
       <div className='rest-box'
          onMouseEnter={ ()=>{ setshowName(true);} }
          onMouseLeave={ ()=>{ setshowName(false);} }
+         onClick={ ()=>{ dispatch(goMenu(restaurant));} }
       >
          <div className = { classnames('titleText') }>{getLanguageInfo(restaurant,'name')}</div>
          <div className = { classnames('subTitleText') }>{ renderTags()}</div>

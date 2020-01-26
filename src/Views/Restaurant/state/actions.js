@@ -1,8 +1,7 @@
 import { push } from 'connected-react-router';
-import intl from 'react-intl-universal';
 import * as ActionType from '../../../Redux/actionTypes';
 import { loadRestaurant } from '../../../Requests/restaurant';
-import { showError,alert } from '../../../Redux/actions/gloabl';
+import { showError } from '../../../Redux/actions/gloabl';
 import { set } from '../../../Common/utils';
 
 /* 加载餐馆 */
@@ -26,5 +25,20 @@ export function loadRestaurants (){
 
          dispatch({ type: ActionType.HIDE_LOADING });
       }
+   };
+}
+
+/* 去menu页面 */
+export function goMenu (restaurant){
+
+   return async (dispatch) => {
+
+      /* show loading */
+      dispatch({ type: ActionType.SHOW_LOADING });
+
+      set('restaurant',restaurant);
+      dispatch(push(`/menu/${restaurant._id}`));
+
+      dispatch({ type: ActionType.HIDE_LOADING });
    };
 }
