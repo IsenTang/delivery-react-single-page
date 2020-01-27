@@ -11,6 +11,8 @@
 
     "restaurant.allRestaurant":"All",
 
+    "menu.no-matching-food":"No matching food found",
+
     "logout":"Log out",
     "close":"Close",
     "tags": {

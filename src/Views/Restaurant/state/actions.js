@@ -2,7 +2,7 @@ import { push } from 'connected-react-router';
 import * as ActionType from '../../../Redux/actionTypes';
 import { loadRestaurant } from '../../../Requests/restaurant';
 import { showError } from '../../../Redux/actions/gloabl';
-import { set } from '../../../Common/utils';
+import { set,get } from '../../../Common/utils';
 
 /* 加载餐馆 */
 export function loadRestaurants (){
@@ -37,6 +37,7 @@ export function goMenu (restaurant){
       dispatch({ type: ActionType.SHOW_LOADING });
 
       set('restaurant',restaurant);
+
       dispatch(push(`/menu/${restaurant._id}`));
 
       dispatch({ type: ActionType.HIDE_LOADING });

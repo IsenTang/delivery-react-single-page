@@ -8,10 +8,12 @@ import loading from './reducers/loading';
 import error from './reducers/error';
 import alert from './reducers/alert';
 import language from './reducers/language';
+import cart from './reducers/cart';
 
 /* pages */
 import login from '../Views/Login/state/reducers';
 import restaurant from '../Views/Restaurant/state/reducers';
+import menu from '../Views/Menu/state/reducers';
 
 const rootReducer = (history) => combineReducers({
    router: connectRouter(history),
@@ -20,7 +22,9 @@ const rootReducer = (history) => combineReducers({
    alert,
    language,
    login,
-   restaurant
+   restaurant,
+   menu,
+   cart
 });
 
 export default rootReducer;

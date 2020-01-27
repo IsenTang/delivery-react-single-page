@@ -29,3 +29,11 @@ export const HIDE_SIGNUPMODAL = 'HIDE_SIGNUPMODAL';
 /* 餐馆 */
 export const LOAD_RESTAURANT = 'LOAD_RESTAURANT';
 
+/* 菜单 */
+export const LOAD_MENU = 'LOAD_MENU';
+
+/* 购物车 */
+export const SAVE_CART = 'SAVE_CART';
+
+export const CLEAR_CART = 'CLEAR_CART';
+

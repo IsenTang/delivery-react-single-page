@@ -10,6 +10,8 @@
     "login.signUpSuccess":"注册成功。",
 
     "restaurant.allRestaurant":"所有餐馆",
+    
+    "menu.no-matching-food":"没有匹配的食物",
 
     "logout":"登 出",
     "close":"关闭",
