@@ -129,7 +129,7 @@ function Menu (){
          const availableStyle = { opacity: 0.2 };
 
          return (
-            <div key={ uuidv4() } className='menu-food-item'  onClick={ () => addFood(food) }>
+            <div key={ uuidv4() } className={ classNames('menu-food-item','cursor') }  onClick={ () => addFood(food) }>
                {
                   length !== 0 ?
                      <div className='menu-count'>
@@ -139,16 +139,16 @@ function Menu (){
                      null
                }
 
-               <div className={ classNames('containerBetween') }>
+               <div className={ classNames('containerBetween','cursor') }>
                   {/* food name */}
                   <div
-                     className='menu-text'
+                     className={ classNames('menu-text','cursor') }
                      style={ food.available ? null : availableStyle }>
                      { food.name[`${language}`] }
                   </div>
 
                   {/* food price */}
-                  <div className='menu-price'
+                  <div className={ classNames('menu-price','cursor') }
                      style={ food.available ? null : availableStyle }>
                      {formatPrice(food.price)}
                   </div>
