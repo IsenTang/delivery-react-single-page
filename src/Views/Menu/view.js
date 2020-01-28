@@ -12,8 +12,11 @@ import * as ActionType from '../../Redux/actionTypes';
 /* actions */
 import { loadMenu,addCart } from './state/actions';
 
+/* public */
+import { renderTags } from '../Restaurant/public';
+
 /* utils */
-import { formatPrice,get,set } from '../../Common/utils';
+import { formatPrice,get,set,getLanguageInfo } from '../../Common/utils';
 
 /* style */
 import './style.scss';
@@ -33,6 +36,8 @@ function Menu (){
 
    const cart = useSelector(state => state.cart.cart);
 
+   const restaurant = get('restaurant');
+
    const { restId } = useParams();
 
    useMount(()=>{
@@ -51,6 +56,7 @@ function Menu (){
       dispatch(loadMenu(restId));
    });
 
+   /* 获取menu */
    useEffect(() => {
 
       const foodsList = renderMenu(menu);
@@ -80,8 +86,8 @@ function Menu (){
             return null;
          }
 
-         return (<div key={ uuidv4() } className={ 'cateBox' }>
-            <div style={{ position : 'relative', paddingLeft : '30px' }}>
+         return (<div key={ uuidv4() } className= 'category-box' >
+            <div >
                <div className='titleText'>{categorie.name[`${language}`]}</div>
                <div className='rectangle' style={{ position : 'relative', left : 0 }}/>
             </div>
@@ -123,21 +129,30 @@ function Menu (){
          const availableStyle = { opacity: 0.2 };
 
          return (
-            <div key={ uuidv4() } className='menuFoodItem'  onClick={ () => addFood(food) }>
-               {length !== 0 ?
-                  <div className='menuCount'>
-                     <div className='menuCountText'>{length}
-                     </div>
-                  </div> :
-                  null}
+            <div key={ uuidv4() } className='menu-food-item'  onClick={ () => addFood(food) }>
+               {
+                  length !== 0 ?
+                     <div className='menu-count'>
+                        <div className='menu-count-text'>{length}
+                        </div>
+                     </div> :
+                     null
+               }
 
-               <div
-                  className='menuText'
-                  style={ food.available ? null : availableStyle }>
-                  { food.name[`${language}`] }
+               <div className={ classNames('containerBetween') }>
+                  {/* food name */}
+                  <div
+                     className='menu-text'
+                     style={ food.available ? null : availableStyle }>
+                     { food.name[`${language}`] }
+                  </div>
+
+                  {/* food price */}
+                  <div className='menu-price'
+                     style={ food.available ? null : availableStyle }>
+                     {formatPrice(food.price)}
+                  </div>
                </div>
-
-               <div className='menuPrice'>{formatPrice(food.price)}</div>
 
             </div>);
 
@@ -157,8 +172,18 @@ function Menu (){
    }
 
    return (
-      <div >
-         {foods}
+      <div className='menu-box'>
+         <div className={ classNames('titleText') }>
+            { getLanguageInfo(restaurant,'name') }
+         </div>
+         <div className={ classNames('subTitleText') }>
+            { renderTags(restaurant) }
+         </div>
+
+         <div className='all-category-box'>
+            {foods}
+         </div>
+
       </div>
    );
 }

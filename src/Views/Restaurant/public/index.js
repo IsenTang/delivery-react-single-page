@@ -1,6 +1,8 @@
 import _ from 'lodash';
 import moment from 'moment-timezone';
 
+import { lang } from '../../../Common/utils';
+
 /* 检查餐馆是否关门 */
 export function checkRestaurantClosed (restaurant) {
 
@@ -36,5 +38,19 @@ export function checkRestaurantClosed (restaurant) {
    }
 
    return true;
+
+}
+
+/* 渲染餐馆tag */
+export function renderTags (restaurant) {
+
+   const tags = _.get(restaurant, 'tags');
+   let str = '';
+
+   _.forEach(tags, (tag) => {
+      str += `${lang(`tags.${tag}`, {}, '')} `;
+   });
+
+   return str;
 
 }

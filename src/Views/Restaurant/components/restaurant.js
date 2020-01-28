@@ -9,7 +9,10 @@ import classnames from 'classnames';
 import DishFood from '../components/DishFood';
 
 /* utils */
-import { getLanguageInfo,lang,get } from '../../../Common/utils';
+import { getLanguageInfo,get } from '../../../Common/utils';
+
+/* public */
+import { renderTags } from '../public';
 
 /* actions */
 import { goMenu } from '../state/actions';
@@ -52,20 +55,6 @@ function SingleRestaurant ({ restaurant }){
 
    const [ uuid ] = useState(uuidv4());
 
-   /* 渲染餐馆tag */
-   const renderTags = () => {
-
-      const tags = _.get(restaurant, 'tags');
-      let str = '';
-
-      _.forEach(tags, (tag) => {
-         str += `${lang(`tags.${tag}`, {}, '')} `;
-      });
-
-      return str;
-
-   };
-
    const renderImages = () => (
       <div className='img-box' >
          <div className='img-box-1'>
@@ -106,7 +95,7 @@ function SingleRestaurant ({ restaurant }){
          onClick={ ()=>{ dispatch(goMenu(restaurant));} }
       >
          <div className = { classnames('titleText') }>{getLanguageInfo(restaurant,'name')}</div>
-         <div className = { classnames('subTitleText') }>{ renderTags()}</div>
+         <div className = { classnames('subTitleText') }>{ renderTags(restaurant)}</div>
          <div> {renderImages()} </div>
       </div>
    );
