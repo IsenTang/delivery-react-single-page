@@ -29,7 +29,7 @@ export function loadMenu (restaurantId){
    };
 }
 
-/* 购物车加食物 */
+/* 往购物车加食物 */
 export function addCart (food, cartId){
 
    return async (dispatch) => {
@@ -59,7 +59,56 @@ export function addCart (food, cartId){
 
          /* 往本地存cart信息 */
          set('cart', cart);
-         set('cartId', cartId);
+
+         if(!_.isUndefined(cartId)){
+            set('cartId', cartId);
+         }
+
+      } catch (error) {
+
+         dispatch(showError(error.message));
+
+      } finally {
+
+         dispatch({ type: ActionType.HIDE_LOADING });
+      }
+   };
+}
+
+/* 购物车减少食物 */
+export function CartRemove (food){
+
+   return async (dispatch) => {
+
+      /* show loading */
+      dispatch({ type: ActionType.SHOW_LOADING });
+
+      let cart = [];
+      try {
+
+         if (food.totalPrice === undefined) {
+
+            food.totalPrice = food.price;
+         }
+
+         /* 获取购物车 */
+         if (_.isEmpty(get('cart'))) {
+            cart = [];
+         } else {
+            cart = get('cart');
+         }
+
+         /* 找到对应食物 */
+         const spliceIndex = _.findLastIndex(cart, (item) =>
+            item._id  === food._id);
+
+         /* 剔除 */
+         cart.splice(spliceIndex, 1);
+
+         dispatch({ type: ActionType.SAVE_CART, cart });
+
+         /* 往本地存cart信息 */
+         set('cart', cart);
 
       } catch (error) {
 

@@ -9,11 +9,15 @@ import  uuidv4  from 'uuid/v4';
 import classNames from 'classnames';
 import * as ActionType from '../../Redux/actionTypes';
 
+/* components */
+import Cart from './components/Cart';
+
 /* actions */
 import { loadMenu,addCart } from './state/actions';
 
 /* public */
 import { renderTags } from '../Restaurant/public';
+import { getTotal } from './public';
 
 /* utils */
 import { formatPrice,get,set,getLanguageInfo } from '../../Common/utils';
@@ -182,6 +186,10 @@ function Menu (){
 
          <div className='all-category-box'>
             {foods}
+         </div>
+         <div>
+            <Cart/>
+            小记: {formatPrice(getTotal(cart))}
          </div>
 
       </div>
