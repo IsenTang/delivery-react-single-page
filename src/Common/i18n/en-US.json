@@ -11,10 +11,14 @@
 
     "restaurant.allRestaurant":"All",
 
-    "menu.no-matching-food":"No matching food found",
+    "menu":{
+      "no-matching-food":"No matching food found",
+      "cartTitle":"Add items to your cart"
+    },
 
     "logout":"Log out",
     "close":"Close",
+
     "tags": {
         "bbq": "BBQ",
         "hotpot": "Hotpot",

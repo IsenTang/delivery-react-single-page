@@ -3,6 +3,7 @@ import  uuidv4  from 'uuid/v4';
 import { useDispatch,useSelector } from 'react-redux';
 import _ from 'lodash';
 import classnames from 'classnames';
+import intl from 'react-intl-universal';
 
 /* components */
 import CartItem from './CartItem';
@@ -31,6 +32,8 @@ function Cart (){
    /* 获取购物车 */
    const cart = useSelector(state => state.cart.cart);
 
+   useSelector(state => state.language.language);
+
    useEffect(() => {
 
       setPrice(formatPrice(getTotal(cart)));
@@ -42,7 +45,7 @@ function Cart (){
       if(_.isEmpty(cart)){
 
          return (
-            <div className='cartEmptyText'> 请选择加入购物车 </div>
+            <div className='cart-empty-text'> {intl.get('menu.cartTitle')} </div>
          );
       }
 
