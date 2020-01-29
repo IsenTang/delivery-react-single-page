@@ -76,7 +76,7 @@ export function addCart (food, cartId){
 }
 
 /* 购物车减少食物 */
-export function CartRemove (food){
+export function cartRemove (food){
 
    return async (dispatch) => {
 

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 /* actions */
-import { addCart,CartRemove } from '../state/actions';
+import { addCart,cartRemove } from '../state/actions';
 
 /* utils */
 import { formatPrice,getLanguageInfo } from '../../../Common/utils';
@@ -35,15 +35,15 @@ function CartItem ({ items }){
    };
 
    return (
-      <div className={ classnames('containerBetween', 'vertical') }>
-         <div> { getLanguageInfo(items[0],'name') }</div>
+      <div className={ classnames('containerBetween', 'vertical','cart-item') }>
+         <div className='cart-item-name'> { getLanguageInfo(items[0],'name') }</div>
 
          <div className={ classnames('containerRow') }>
 
             {/* 价格 */}
             <div className='cart-item-price' >{ renderPrice() }</div>
             {/* 减号 */}
-            <button className='cart-remove-button' onClick={ ()=>{ dispatch(CartRemove(items[0]));} }>-</button>
+            <button className='cart-remove-button' onClick={ ()=>{ dispatch(cartRemove(items[0]));} }>-</button>
             {/* 数量 */}
             <div className='cart-item-count'>{items.length}</div>
             {/* 加号 */}

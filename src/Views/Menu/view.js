@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import intl from 'react-intl-universal';
 import _ from 'lodash';
 import  uuidv4  from 'uuid/v4';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import * as ActionType from '../../Redux/actionTypes';
 
 /* components */
@@ -17,7 +17,6 @@ import { loadMenu,addCart } from './state/actions';
 
 /* public */
 import { renderTags } from '../Restaurant/public';
-import { getTotal } from './public';
 
 /* utils */
 import { formatPrice,get,set,getLanguageInfo } from '../../Common/utils';
@@ -133,7 +132,7 @@ function Menu (){
          const availableStyle = { opacity: 0.2 };
 
          return (
-            <div key={ uuidv4() } className={ classNames('menu-food-item','cursor') }  onClick={ () => addFood(food) }>
+            <div key={ uuidv4() } className={ classnames('menu-food-item','cursor') }  onClick={ () => addFood(food) }>
                {
                   length !== 0 ?
                      <div className='menu-count'>
@@ -143,16 +142,16 @@ function Menu (){
                      null
                }
 
-               <div className={ classNames('containerBetween','cursor') }>
+               <div className={ classnames('containerBetween','cursor') }>
                   {/* food name */}
                   <div
-                     className={ classNames('menu-text','cursor') }
+                     className={ classnames('menu-text','cursor') }
                      style={ food.available ? null : availableStyle }>
                      { food.name[`${language}`] }
                   </div>
 
                   {/* food price */}
-                  <div className={ classNames('menu-price','cursor') }
+                  <div className={ classnames('menu-price','cursor') }
                      style={ food.available ? null : availableStyle }>
                      {formatPrice(food.price)}
                   </div>
@@ -177,19 +176,22 @@ function Menu (){
 
    return (
       <div className='menu-box'>
-         <div className={ classNames('titleText') }>
+         <div className={ classnames('titleText') }>
             { getLanguageInfo(restaurant,'name') }
          </div>
-         <div className={ classNames('subTitleText') }>
+         <div className={ classnames('subTitleText') }>
             { renderTags(restaurant) }
          </div>
 
          <div className='all-category-box'>
             {foods}
          </div>
-         <div>
-            <Cart/>
-            小记: {formatPrice(getTotal(cart))}
+         <div className='menu-cart-container'>
+
+            <div className='menu-cart-content'>
+               <Cart/>
+            </div>
+
          </div>
 
       </div>

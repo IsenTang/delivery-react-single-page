@@ -1,0 +1,94 @@
+@import '../../../Styles/color.scss';
+
+$radius-value : 15px;
+
+.cart-item{
+    margin-bottom : 23px;
+}
+
+.cart-item-name{
+    flex : 1;
+    font-size : 16px;
+    font-style : normal;
+    font-weight : normal;
+    font-stretch : normal;
+    line-height : 30px;
+    color : $black;
+    letter-spacing : normal;
+}
+
+.cart-item-price{
+    height : 30px;
+    margin-right : 5px;
+    font-size : 16px;
+    font-style : normal;
+    font-weight : normal;
+    font-stretch : normal;
+    line-height : 30px;
+    color : $black;
+    letter-spacing : normal;
+}
+
+.cart-item-count{
+    width : 24px;
+    height :30px;
+    font-family : PingFangSC-Regular;
+    line-height : 30px;
+    color :$white;
+    text-align : center;
+    background-color :$black
+}
+
+.cart-add-button{
+    width : 29px;
+    height :30px;
+    padding :0 0;
+    padding-left : 10px;
+    font-family : PingFangSC-Regular;
+    font-size : 14px;
+    line-height : 30px;
+    color :$white;
+    text-align : left;
+    background-color :$black;
+    border : 0;
+    border-top-left-radius : 0px;
+    border-top-right-radius : $radius-value;
+    border-bottom-right-radius : $radius-value;
+    border-bottom-left-radius : 0px;
+}
+
+.cart-remove-button{
+    float : right;
+    width : 29px;
+    height :30px;
+    padding :0 0;
+    font-family : PingFangSC-Regular;
+    font-size : 14px;
+    line-height : 30px;
+    color :$white;
+    background-color :$black;
+    border : 0;
+    border-top-left-radius : $radius-value;
+    border-top-right-radius : 0px;
+    border-bottom-right-radius : 0px;
+    border-bottom-left-radius : $radius-value
+}
+
+.menu-cart-subtotal-btn{
+    width : 100%;
+    height : 40px;
+    padding : 0 20px;
+    font-family : PingFangSC-Regular;
+    font-size : 16px;
+    line-height : 1.5;
+    color : $white;
+    cursor : pointer;
+    background-color : $black;
+    border : 0;
+    border-radius : 25px;
+    transition : all 0.3s linear;
+}
+
+.menu-cart-subtotal-btn:hover {
+    background : $dark-green;
+  }

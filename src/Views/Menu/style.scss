@@ -3,6 +3,7 @@
 @import '../../Styles/size.scss';
 
 .menu-box{
+    position : relative;
     margin-top : 65px;
     margin-bottom : 50px;
     margin-left : 100px;
@@ -16,7 +17,7 @@
     column-count :2;
     -moz-column-gap : 12%;
     -webkit-column-gap : 12%;
-    column-gap : 12%;  
+    column-gap : 12%;
     margin-top : 69px;
 }
 
@@ -72,7 +73,7 @@
     height :24px;
     margin-top : 30px;
     font-family : PingFangSC;
-    font-size : (16px);
+    font-size : 16px;
     font-style : normal;
     font-weight : normal;
     font-stretch : normal;
@@ -80,4 +81,42 @@
     color : $black;
     letter-spacing : normal;
     cursor : pointer;
+}
+
+/* cart style */
+.menu-cart{
+    &-container{
+        position : fixed;
+        right : 0;
+        bottom : 0;
+        left : 0;
+        display : flex;
+        justify-content : center;
+        margin : auto;
+    }
+
+    &-content{
+        position : absolute;
+        right :calc(((100vw - 1440px) / 2) + 120px);
+        bottom :calc((100vh - 670px) * 0.28);
+    }
+
+    &-main-container{
+        display : flex;
+        flex-direction : column;
+        width : 320px;
+        max-height : 670px;
+        padding : 15px 20px 20px 20px;
+        background : $backgroundColor;
+        border : 1px solid $backgroundColor;
+        box-shadow : 0 2px 8px 0 rgba(146, 146, 146, 0.5);
+        transition : all 0.3s linear;
+        > div {
+            display : flex;
+            flex-direction : column;
+            overflow-x : hidden;
+            overflow-y : auto;
+            -webkit-overflow-scrolling : touch;
+          }
+    }
 }

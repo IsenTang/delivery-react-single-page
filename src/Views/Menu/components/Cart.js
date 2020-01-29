@@ -1,5 +1,4 @@
-import React,{ useState } from 'react';
-import PropTypes from 'prop-types';
+import React,{ useState,useEffect } from 'react';
 import  uuidv4  from 'uuid/v4';
 import { useDispatch,useSelector } from 'react-redux';
 import _ from 'lodash';
@@ -9,9 +8,10 @@ import classnames from 'classnames';
 import CartItem from './CartItem';
 
 /* utils */
-import { get } from '../../../Common/utils';
+import { get,formatPrice } from '../../../Common/utils';
 
 /* public */
+import { getTotal } from '../public';
 
 /* actions */
 
@@ -25,9 +25,16 @@ function Cart (){
 
    const dispatch = useDispatch();
 
+   const [ price,setPrice ] = useState('$0.00');
+
    /* store */
    /* 获取购物车 */
-   let cart =  useSelector(state => state.cart.cart);
+   const cart = useSelector(state => state.cart.cart);
+
+   useEffect(() => {
+
+      setPrice(formatPrice(getTotal(cart)));
+   }, [ cart ]);
 
    /* 渲染购物车 */
    function renderCart (){
@@ -39,18 +46,23 @@ function Cart (){
          );
       }
 
+      let cloneCart = _.cloneDeep(cart);
       /* 根据id，获取购物车物品数量 */
-      cart = _.groupBy(cart, (item) => item._id);
+      cloneCart = _.groupBy(cart, (item) => item._id);
 
-      return _.map(cart,(item)=>{
+      return _.map(cloneCart,(item)=>{
 
          return <CartItem items={ item } key={ uuidv4() }/>;
       });
    }
 
    return (
-      <div>
-         {renderCart()}
+      <div className = { 'menu-cart-main-container' }>
+         <div>{renderCart()}</div>
+         <div className = { classnames('vertical') }>
+
+            <button className = 'menu-cart-subtotal-btn'>{price}</button>
+         </div>
       </div>
    );
 }

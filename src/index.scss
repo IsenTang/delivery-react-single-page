@@ -2,8 +2,10 @@
 
 /* 初始化style */
 #root {
+  position : relative;
   width : 100%;
   height : 100%;
+  padding :0;
   margin : auto;
 }
 
@@ -36,5 +38,7 @@ input:focus, button:focus {
 }
 
 .App{
-  padding : 0 50px;
+  max-width : 1440px;
+  padding : 0 120px;
+  margin : auto;
 }
