@@ -4,6 +4,7 @@ import * as ActionType from '../../../Redux/actionTypes';
 import { showError } from '../../../Redux/actions/gloabl';
 import { get,set } from '../../../Common/utils';
 const { loadMenu: requestMenu } = require('../../../Requests/menu');
+const { placeOrder: requestPlaceOrder } = require('../../../Requests/order');
 
 /* 加载餐馆 */
 export function loadMenu (restaurantId){
@@ -110,6 +111,33 @@ export function cartRemove (food){
          /* 往本地存cart信息 */
          set('cart', cart);
 
+      } catch (error) {
+
+         dispatch(showError(error.message));
+
+      } finally {
+
+         dispatch({ type: ActionType.HIDE_LOADING });
+      }
+   };
+}
+
+/* 支付 */
+export function placeOrder (restId){
+
+   return async (dispatch,getState) => {
+
+      /* show loading */
+      dispatch({ type: ActionType.SHOW_LOADING });
+
+      try {
+
+         const data = {
+            payment:_.get(get('payment'),'value'),
+            cart:_.get(getState(),'cart.cart')
+         };
+
+         await requestPlaceOrder(data,restId);
       } catch (error) {
 
          dispatch(showError(error.message));

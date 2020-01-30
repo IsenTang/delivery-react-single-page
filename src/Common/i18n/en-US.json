@@ -13,7 +13,10 @@
 
     "menu":{
       "no-matching-food":"No matching food found",
-      "cartTitle":"Add items to your cart"
+      "cartTitle":"Add items to your cart",
+      "place-order": "Place Order",
+      "total": "Total:",
+      "choose-payment":"Select Payment"
     },
 
     "logout":"Log out",

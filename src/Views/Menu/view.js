@@ -187,11 +187,9 @@ function Menu (){
             {foods}
          </div>
          <div className='menu-cart-container'>
-
             <div className='menu-cart-content'>
                <Cart/>
             </div>
-
          </div>
 
       </div>

@@ -101,8 +101,205 @@ $radius-value : 15px;
     border : 0;
     border-radius : 25px;
     transition : all 0.3s linear;
+
+    &:hover{
+        background : $dark-green;
+    }
+
+    &:disabled{
+        background : $line-grey;
+    }
+
+    &-expand{
+        background : $dark-green;
+    }
 }
 
-.menu-cart-subtotal-btn:hover {
-    background : $dark-green;
+.menu-cart-total{
+    padding-top : 10px;
+    padding-bottom : 15px;
+    font-size : 24px;
+    line-height : 1.5;
+    color :$black;
+    border-top : 1px solid $line;
+}
+
+.cart-left{
+    width : 0;
+    padding : 0;
+    background : $backgroundColor;
+    border : 1px solid $backgroundColor;
+    border-right : 0;
+    box-shadow : 0 2px 8px 0 rgba(146, 146, 146, 0.5);
+    transition : width 0.3s linear;
+    &-expand {
+        width : 450px;
+        padding : 0 20px 0;
+        overflow-y : hidden;
+        border-right : 2px solid $line;
+        box-shadow : none;
+        transition : width 0.3s linear, padding 0.3s linear, opacity 0.3s cubic-bezier(.7,.07,1,-0.07);
+    }
+}
+
+/* cart style */
+.menu-cart{
+    &-container{
+        position : fixed;
+        right : 0;
+        bottom : 0;
+        left : 0;
+        display : flex;
+        justify-content : center;
+        margin : auto;
+    }
+
+    &-content{
+        position : absolute;
+        right :calc(((100vw - 1440px) / 2) + 120px);
+        bottom :calc((100vh - 670px) * 0.28);
+    }
+
+    &-main-container{
+        display : flex;
+        flex-direction : column;
+        justify-content : space-between;
+        width : 320px;
+        max-height : 670px;
+        padding : 15px 20px 20px 20px;
+        background : $backgroundColor;
+        border : 1px solid $backgroundColor;
+        box-shadow : 0 2px 8px 0 rgba(146, 146, 146, 0.5);
+        transition : all 0.3s linear;
+        > div:nth-child(1) {
+            display : flex;
+            flex-direction : column;
+            overflow-x : hidden;
+            overflow-y : auto;
+            -webkit-overflow-scrolling : touch;
+          }
+
+        &-expand{
+            width :320px;
+            height : 670px;
+            padding : 0px 20px 0px;
+            box-shadow : none;
+            // transition : all 0.3s linear;
+        }
+    }
+
+    &-closed{
+        display : flex;
+        flex-direction : column;
+        // justify-content : space-between;
+        padding :0;
+        margin-right : 10px;
+        background-color : transparent;
+        border : 0;
+    }
+
+    &-closed-btn{
+        max-width : 56.3px;
+        height : auto;
+    }
+
+}
+
+.container-expand{
+    padding : 15px 0px 20px;
+    background-color : $backgroundColor;
+    box-shadow : 0 2px 8px 0 rgba(146, 146, 146, 0.5);
+}
+
+/* payment */
+.payment-select {
+    &-container {
+      height : 30px;
+      color : $black;
+    }
+    &-logo {
+      width : auto;
+      height : 130%;
+      &[disabled] {
+        opacity : 0.25;
+      }
+    }
+    &-option {
+      border : 1px solid $line-grey;
+      border-radius : 25px;
+    }
+    &-addcard {
+      &-content {
+        position : absolute;
+  
+        position : static;
+        width : 100%;
+        height : 100%;
+        padding : 0;
+        overflow : auto;
+        background : transparent;
+        border-radius : 5px;
+        outline : none;
+  
+      }
+      &-root {
+        display : flex;
+        align-items : center;
+        justify-content : center;
+        width : 100%;
+        height : 100%;
+      }
+      &-container {
+        position : absolute;
+        position : absolute;
+        padding : 0;
+        overflow : auto;
+        background : transparent;
+        border-radius : 5px;
+        outline : none;
+      }
+      &-box {
+        display : flex;
+        flex-direction : row;
+      }
+      &-form {
+        width : 400px;
+        height : 170px;
+        background : $backgroundColor;
+        border-radius : 5px;
+      }
+    }
+    &-close {
+      display : flex;
+      flex-direction : column;
+      padding : 0;
+      margin-right : 10px;
+      cursor : pointer;
+      background : transparent;
+      border : 0;
+      img {
+        max-width :56.3px;
+        height : auto;
+      }
+    }
+}
+
+.not-visible {
+    height : 0 !important;
+    min-height : 0 !important;
+    padding : 0;
+    margin : 0 !important;
+    opacity : 0;
+    transition : opacity 0.3s cubic-bezier(0,1.01,.22,1.03);
+}
+
+.visible {
+    opacity : 1;
+    transition : opacity 0.3s cubic-bezier(.7,.07,1,-0.07);
   }
+
+.menu-cart-payment-input{
+    width :320px;
+    height :30px;
+    margin : 15px 0 10px;
+}

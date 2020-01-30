@@ -13,7 +13,10 @@
     
     "menu":{
       "no-matching-food":"没有匹配的食物",
-      "cartTitle":"选择加入购物车"
+      "cartTitle":"选择加入购物车",
+      "place-order": "确认下单",
+      "total": "总价:",
+      "choose-payment": "选择支付方式"
     },
 
     "logout":"登 出",

@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
@@ -55,7 +55,7 @@ function CartItem ({ items }){
 }
 
 CartItem.propTypes = {
-   items: PropTypes.object
+   items: PropTypes.array
 };
 
 export default CartItem;

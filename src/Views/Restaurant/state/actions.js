@@ -2,7 +2,7 @@ import { push } from 'connected-react-router';
 import * as ActionType from '../../../Redux/actionTypes';
 import { loadRestaurant } from '../../../Requests/restaurant';
 import { showError } from '../../../Redux/actions/gloabl';
-import { set,get } from '../../../Common/utils';
+import { set } from '../../../Common/utils';
 
 /* 加载餐馆 */
 export function loadRestaurants (){

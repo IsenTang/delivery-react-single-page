@@ -7,8 +7,6 @@ import classnames from 'classnames';
 import  uuidv4  from 'uuid/v4';
 import { useDispatch,useSelector } from 'react-redux';
 
-import { get } from '../../../Common/utils';
-
 /* actions */
 import { changeLanguage } from '../state/actions';
 import { goLogin,logOut } from '../../../Redux/actions/gloabl';
