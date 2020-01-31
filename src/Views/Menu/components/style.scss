@@ -290,7 +290,7 @@ $radius-value : 15px;
     padding : 0;
     margin : 0 !important;
     opacity : 0;
-    transition : opacity 0.3s cubic-bezier(0,1.01,.22,1.03);
+    transition : opacity 0.3s cubic-bezier(0,1.01,.22,1.03); //贝塞尔曲线
 }
 
 .visible {

@@ -63,5 +63,8 @@
         "fujian": "福建菜",
         "wonton": "馄饨",
         "congee": "粥"
+      },
+      "error":{
+        "need-login":"您需要先登录。"
       }
 }

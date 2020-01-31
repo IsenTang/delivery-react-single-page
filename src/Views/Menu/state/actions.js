@@ -1,10 +1,13 @@
 // import { push } from 'connected-react-router';
 import _ from 'lodash';
+import intl from 'react-intl-universal';
 import * as ActionType from '../../../Redux/actionTypes';
 import { showError } from '../../../Redux/actions/gloabl';
 import { get,set } from '../../../Common/utils';
-const { loadMenu: requestMenu } = require('../../../Requests/menu');
-const { placeOrder: requestPlaceOrder } = require('../../../Requests/order');
+
+/* requests */
+import { placeOrderRequest } from '../../../Requests/order';
+import { loadMenu as requestMenu } from '../../../Requests/menu';
 
 /* 加载餐馆 */
 export function loadMenu (restaurantId){
@@ -130,14 +133,28 @@ export function placeOrder (restId){
       /* show loading */
       dispatch({ type: ActionType.SHOW_LOADING });
 
+      const userId = _.get(getState(),'login.user._id');
+
+      if(!userId){
+
+         dispatch(showError(intl.get('error.need-login')));
+         dispatch({ type: ActionType.HIDE_LOADING });
+         return;
+      }
       try {
 
          const data = {
             payment:_.get(get('payment'),'value'),
-            cart:_.get(getState(),'cart.cart')
+            cart:_.get(getState(),'cart.cart'),
+            user:{
+               _id:userId
+            },
+            restaurant:{
+               _id: restId
+            }
          };
 
-         await requestPlaceOrder(data,restId);
+         await placeOrderRequest(data);
       } catch (error) {
 
          dispatch(showError(error.message));

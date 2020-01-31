@@ -63,5 +63,8 @@
         "fujian": "Fujian",
         "wonton": "Wonton",
         "congee": "Congee"
+      },
+      "error":{
+        "need-login":"Please log in first."
       }
 }

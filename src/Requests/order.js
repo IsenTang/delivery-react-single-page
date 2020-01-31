@@ -2,11 +2,11 @@ import request from '../Common/request';
 import env from '../Common/config';
 
 /* 登录 */
-export async function placeOrder (data,restId){
+export async function placeOrderRequest (data){
 
    const result = await request({
-      url:     `${env.server}/restaurants/${restId}/orders`,
-      method:  'post',
+      url:     `${env.server}/order`,
+      method:  'put',
       data
    });
 
