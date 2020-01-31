@@ -16,7 +16,8 @@
       "cartTitle":"Add items to your cart",
       "place-order": "Place Order",
       "total": "Total:",
-      "choose-payment":"Select Payment"
+      "choose-payment":"Select Payment",
+      "no-menu":"No menu at the moment."
     },
 
     "logout":"Log out",

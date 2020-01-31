@@ -16,7 +16,8 @@
       "cartTitle":"选择加入购物车",
       "place-order": "确认下单",
       "total": "总价:",
-      "choose-payment": "选择支付方式"
+      "choose-payment": "选择支付方式",
+      "no-menu":"暂时没有菜单。"
     },
 
     "logout":"登 出",

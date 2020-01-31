@@ -75,6 +75,10 @@ function Menu (){
 
       const foods = _.get(menu, 'foods');
 
+      if(_.isEmpty(foods)){
+         return <div> {intl.get('menu.no-menu')} </div>;
+      }
+
       return _.map(categories, (categorie) => {
 
          const categorieId = _.get(categorie, '_id');
