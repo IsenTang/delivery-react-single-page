@@ -1,10 +1,11 @@
-import { push } from 'connected-react-router';
+import { push,goBack } from 'connected-react-router';
 import intl from 'react-intl-universal';
 import * as ActionType from '../../../Redux/actionTypes';
 import { checkLogin,register } from '../../../Requests/login';
 import { showError,alert } from '../../../Redux/actions/gloabl';
 import { encode } from '../../../Services/login';
 import { set } from '../../../Common/utils';
+import { history } from '../../../Redux/store';
 
 /* 登录 */
 export function login (username,password){
@@ -24,7 +25,11 @@ export function login (username,password){
 
          set('user',user);
 
-         dispatch(push('/restaurant'));
+         if(history.length > 1){
+            dispatch(goBack());
+         }else{
+            dispatch(push('/restaurant'));
+         }
 
       } catch (error) {
 

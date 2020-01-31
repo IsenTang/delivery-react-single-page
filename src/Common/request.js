@@ -15,9 +15,6 @@ const fetch = (options) => {
    let { url } = options;
    const { data = {}, headers = {}, method } = options;
 
-   /* Append User Token if any */
-   /* Has to get store instance in the function, putting on top will cause error */
-
    const token = _.get(get('user'), 'token');
 
    if (token) {

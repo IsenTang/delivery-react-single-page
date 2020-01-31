@@ -84,3 +84,13 @@ export function formatPrice (num,toFixed){
 
    return p;
 }
+
+export async function mockTimeout (time){
+
+   return new Promise((resolve)=>{
+
+      setTimeout(()=>{
+         resolve();
+      },time);
+   });
+}

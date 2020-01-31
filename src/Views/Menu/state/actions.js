@@ -1,9 +1,9 @@
-// import { push } from 'connected-react-router';
 import _ from 'lodash';
 import intl from 'react-intl-universal';
+import { push } from 'connected-react-router';
 import * as ActionType from '../../../Redux/actionTypes';
 import { showError } from '../../../Redux/actions/gloabl';
-import { get,set } from '../../../Common/utils';
+import { get,set,mockTimeout } from '../../../Common/utils';
 
 /* requests */
 import { placeOrderRequest } from '../../../Requests/order';
@@ -137,12 +137,15 @@ export function placeOrder (restId){
 
       if(!userId){
 
-         dispatch(showError(intl.get('error.need-login')));
+         dispatch(showError(intl.get('error.need-login'),()=>{
+            dispatch(push('/login'));
+         }));
          dispatch({ type: ActionType.HIDE_LOADING });
          return;
       }
       try {
 
+         /* 组织数据 */
          const data = {
             payment:_.get(get('payment'),'value'),
             cart:_.get(getState(),'cart.cart'),
@@ -154,7 +157,14 @@ export function placeOrder (restId){
             }
          };
 
+         /* 发送下单请求 */
          await placeOrderRequest(data);
+
+         /* 模拟时间 */
+         await mockTimeout(2000);
+         /* 成功后跳转至用户订单页面 */
+         dispatch(push('/order'));
+
       } catch (error) {
 
          dispatch(showError(error.message));
