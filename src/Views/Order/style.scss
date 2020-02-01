@@ -1,0 +1,20 @@
+@import '../../Styles/global.scss';
+@import '../../Styles/color.scss';
+@import '../../Styles/size.scss';
+
+
+.order-tab{
+    @extend .h1;
+    position : relative;
+    width : 30%;
+    height :auto;
+    margin-top : 30px;
+    margin-left :30px;
+    line-height : 1;
+    word-break : break-all;
+    word-wrap : break-word;
+}
+
+.order-tab-fixed{
+    position : fixed;
+}

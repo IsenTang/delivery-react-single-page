@@ -3,7 +3,7 @@ import _ from 'lodash';
 import * as ActionType from '../../../Redux/actionTypes';
 import { loadOrder } from '../../../Requests/order';
 import { showError } from '../../../Redux/actions/gloabl';
-import { get,set } from '../../../Common/utils';
+import { get } from '../../../Common/utils';
 
 /* 加载餐馆 */
 export function loadOrders (){

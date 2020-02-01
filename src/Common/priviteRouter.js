@@ -23,7 +23,6 @@ const PrivateRouter = ({ component: Component, ...rest }) => {
 
    /* if path = login , if isAuth , directly go to the restaurant page */
    /* else go to the login page  */
-
    if (rest.path === '/login') {
       if (isAuthenticated) {
          flag = false;

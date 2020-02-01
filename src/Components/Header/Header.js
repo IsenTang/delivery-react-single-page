@@ -1,16 +1,21 @@
 import React from 'react';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
 /* components */
 import ProfileDropDown from './components/ProfileDropDown';
 
+/* actions */
+import { goRestaurant } from '../../Redux/actions/gloabl';
+
 /* style */
 import './style.scss';
 
 function Header ({ children }){
+
+   const dispatch = useDispatch();
 
    const [ isProfileShow,setIsProfileShow ] = useState(false);
 
@@ -26,7 +31,10 @@ function Header ({ children }){
       <div >
          <div className='header'>
             <div className={ classnames('containerBetween', 'vertical', 'left') }>
-               <img className='logo' src={ require('../../Assets/logo.png') }/>
+               <img className='logo'
+                  onClick={ ()=>{ dispatch(goRestaurant());} }
+                  src={ require('../../Assets/logo.png') }
+               />
             </div>
             <div className='profile'>
                <img

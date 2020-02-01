@@ -19,6 +19,9 @@
       "choose-payment":"Select Payment",
       "no-menu":"No menu at the moment."
     },
+    "order":{
+      "title":"Past Orders"
+    },
 
     "logout":"Log out",
     "close":"Close",

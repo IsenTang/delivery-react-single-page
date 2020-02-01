@@ -7,12 +7,14 @@ import _ from 'lodash';
 import  uuidv4  from 'uuid/v4';
 import classNames from 'classnames';
 
-/* public */
+/* util */
+import { get } from '../../Common/utils';
 
 /* components */
 
 /* actions */
 import { loadOrders } from './state/actions';
+import { goRestaurant } from '../../Redux/actions/gloabl';
 
 /* style */
 import './style.scss';
@@ -32,20 +34,38 @@ function Order (){
 
    /* mount */
    useMount(()=>{
+      const token = _.get(get('user'),'token','');
 
-      /* 获取restaurants */
-      dispatch(loadOrders());
+      /* 如果没登录，返回到restaurant页面 */
+      if(_.isEmpty(token)){
+         dispatch(goRestaurant());
+      }else{
+         /* 获取restaurants */
+         dispatch(loadOrders());
+      }
    });
 
    useEffect(() => {
 
-      // const restsList = renderRestaurants(restaurants);
-      setOrderList([]);
+      setOrderList(renderOrders());
    }, [ orders,language ]);
+
+   /* 渲染order */
+   function renderOrders (){
+
+      return null;
+   }
 
    return (
       <div className={ classNames('containerBetween') }>
-            123
+         <div className='order-tab'>
+            <div className='order-tab-fixed'>
+               {intl.get('order.title')}
+               <div className='rectangle'></div>
+            </div>
+         </div>
+
+         <div> 223 </div>
       </div>
    );
 }

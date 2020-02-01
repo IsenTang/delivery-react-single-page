@@ -38,3 +38,26 @@ export function logOut (){
       dispatch({ type: ActionType.CLEAR_USER });
    };
 }
+
+/*  跳转到restaurant */
+export function goRestaurant (){
+
+   return async (dispatch) => {
+
+      /* show loading */
+      dispatch({ type: ActionType.SHOW_LOADING });
+
+      try {
+
+         dispatch(push('/restaurant'));
+
+      } catch (error) {
+
+         dispatch(showError(error.message));
+
+      } finally {
+
+         dispatch({ type: ActionType.HIDE_LOADING });
+      }
+   };
+}

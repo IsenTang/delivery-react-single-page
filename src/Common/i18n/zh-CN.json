@@ -19,6 +19,9 @@
       "choose-payment": "选择支付方式",
       "no-menu":"暂时没有菜单。"
     },
+    "order":{
+      "title":"历史订单"
+    },
 
     "logout":"登 出",
     "close":"关闭",
