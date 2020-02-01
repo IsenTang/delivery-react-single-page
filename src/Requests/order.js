@@ -12,3 +12,14 @@ export async function placeOrderRequest (data){
 
    return result;
 }
+
+/* 获取个人order信息 */
+export async function loadOrder (userId){
+
+   const result = await request({
+      url:     `${env.server}/order/${userId}`,
+      method:  'get'
+   });
+
+   return result;
+}

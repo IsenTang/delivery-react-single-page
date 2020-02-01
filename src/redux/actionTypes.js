@@ -37,3 +37,6 @@ export const SAVE_CART = 'SAVE_CART';
 
 export const CLEAR_CART = 'CLEAR_CART';
 
+/* 订单 */
+export const LOAD_ORDER = 'LOAD_ORDER';
+

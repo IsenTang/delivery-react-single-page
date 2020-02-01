@@ -14,6 +14,7 @@ import cart from './reducers/cart';
 import login from '../Views/Login/state/reducers';
 import restaurant from '../Views/Restaurant/state/reducers';
 import menu from '../Views/Menu/state/reducers';
+import order from '../Views/Order/state/reducers';
 
 const rootReducer = (history) => combineReducers({
    router: connectRouter(history),
@@ -24,7 +25,8 @@ const rootReducer = (history) => combineReducers({
    login,
    restaurant,
    menu,
-   cart
+   cart,
+   order
 });
 
 export default rootReducer;

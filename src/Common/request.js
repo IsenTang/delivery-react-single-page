@@ -50,6 +50,7 @@ const fetch = (options) => {
          }
       });
       url = domin + url;
+
    } catch (e) {
 
       console.log(e);

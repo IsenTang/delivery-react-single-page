@@ -1,7 +1,7 @@
 import request from '../Common/request';
 import env from '../Common/config';
 
-/* 登录 */
+/* 获取所有餐馆 */
 export async function loadRestaurant (){
 
    const result = await request({
