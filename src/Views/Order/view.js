@@ -11,6 +11,7 @@ import classNames from 'classnames';
 import { get } from '../../Common/utils';
 
 /* components */
+import SingleOrder from './components/SingleOrder';
 
 /* actions */
 import { loadOrders } from './state/actions';
@@ -53,7 +54,17 @@ function Order (){
    /* 渲染order */
    function renderOrders (){
 
-      return null;
+      if(_.isEmpty(orders)){
+         return <div> no orders </div>;
+      }
+
+      return _.map(orders,(order)=>{
+
+         return (
+            <SingleOrder key={ uuidv4() } order={ order }/>
+         );
+      });
+
    }
 
    return (
@@ -65,7 +76,7 @@ function Order (){
             </div>
          </div>
 
-         <div> 223 </div>
+         <div className='order-list'> {renderOrders()} </div>
       </div>
    );
 }

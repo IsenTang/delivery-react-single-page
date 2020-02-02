@@ -2,7 +2,6 @@ import React,{ useState,useEffect } from 'react';
 import PropTypes from 'prop-types';
 import  uuidv4  from 'uuid/v4';
 import { useSelector,useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import _ from 'lodash';
 import classnames from 'classnames';
 import intl from 'react-intl-universal';
@@ -45,8 +44,6 @@ function Cart (){
 
    const [ payment,setPayment ] = useState(get('payment') || null);
 
-   const { restId } = useParams();
-
    /* store */
    /* 获取购物车 */
    const cart = useSelector(state => state.cart.cart);
@@ -86,7 +83,7 @@ function Cart (){
 
       if(isExpand){
          /* 支付 */
-         dispatch(placeOrder(restId));
+         dispatch(placeOrder());
       }else{
          setIsExpand( true );
       }

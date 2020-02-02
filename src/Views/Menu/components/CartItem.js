@@ -11,7 +11,7 @@ import { addCart,cartRemove } from '../state/actions';
 import { formatPrice,getLanguageInfo } from '../../../Common/utils';
 
 /* 购物车单项 */
-function CartItem ({ items }){
+function CartItem ({ items,editable,expand }){
 
    const dispatch = useDispatch();
    /* 计算总价 */
@@ -41,13 +41,13 @@ function CartItem ({ items }){
          <div className={ classnames('containerRow') }>
 
             {/* 价格 */}
-            <div className='cart-item-price' >{ renderPrice() }</div>
+            {expand ? <div className='cart-item-price' hidden={ !expand }>{ renderPrice() }</div> : null}
             {/* 减号 */}
-            <button className='cart-remove-button' onClick={ ()=>{ dispatch(cartRemove(items[0]));} }>-</button>
+            {editable ? <button className='cart-remove-button' onClick={ ()=>{ dispatch(cartRemove(items[0]));} }>-</button> : null}
             {/* 数量 */}
-            <div className='cart-item-count'>{items.length}</div>
+            <div className={ editable ? 'cart-item-count' : 'cart-item-count-no-editable' }>{items.length}</div>
             {/* 加号 */}
-            <button className='cart-add-button' onClick={ ()=>{ dispatch(addCart(items[0]));} }>+</button>
+            {editable ? <button className='cart-add-button' onClick={ ()=>{ dispatch(addCart(items[0]));} }>+</button> : null}
 
          </div>
       </div>
@@ -55,7 +55,14 @@ function CartItem ({ items }){
 }
 
 CartItem.propTypes = {
-   items: PropTypes.array
+   items: PropTypes.array,
+   editable:PropTypes.bool,
+   expand:PropTypes.bool,
+};
+
+CartItem.defaultProps = {
+   editable: true,
+   expand:true
 };
 
 export default CartItem;

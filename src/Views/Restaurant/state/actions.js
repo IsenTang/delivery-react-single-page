@@ -36,6 +36,8 @@ export function goMenu (restaurant){
       /* show loading */
       dispatch({ type: ActionType.SHOW_LOADING });
 
+      dispatch({ type: ActionType.SAVE_RESTAURANT,restaurant });
+
       set('restaurant',restaurant);
 
       dispatch(push(`/menu/${restaurant._id}`));

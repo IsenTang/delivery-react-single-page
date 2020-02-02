@@ -20,7 +20,8 @@
       "no-menu":"No menu at the moment."
     },
     "order":{
-      "title":"Past Orders"
+      "title":"Past Orders",
+      "more":"More"
     },
 
     "logout":"Log out",

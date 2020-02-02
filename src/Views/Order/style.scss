@@ -15,6 +15,14 @@
     word-wrap : break-word;
 }
 
+.order-list{
+    display : grid;
+    grid-template-rows : repeat(10,460px);
+    grid-template-columns : 33% 33% 33%;
+    width :100%;
+    margin-left : 100px;
+}
+
 .order-tab-fixed{
     position : fixed;
 }

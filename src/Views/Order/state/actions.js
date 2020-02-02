@@ -16,9 +16,10 @@ export function loadOrders (){
       try {
 
          const userId = _.get(get('user'),'_id');
+
          const orders = await loadOrder(userId);
 
-         dispatch({ type: ActionType.LOAD_ORDER,orders });
+         dispatch({ type: ActionType.LOAD_ORDER,orders:orders.list });
 
       } catch (error) {
 

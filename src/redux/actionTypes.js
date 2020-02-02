@@ -29,6 +29,8 @@ export const HIDE_SIGNUPMODAL = 'HIDE_SIGNUPMODAL';
 /* 餐馆 */
 export const LOAD_RESTAURANT = 'LOAD_RESTAURANT';
 
+export const SAVE_RESTAURANT = 'SAVE_RESTAURANT';
+
 /* 菜单 */
 export const LOAD_MENU = 'LOAD_MENU';
 

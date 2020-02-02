@@ -126,16 +126,18 @@ export function cartRemove (food){
 }
 
 /* 支付 */
-export function placeOrder (restId){
+export function placeOrder (){
 
    return async (dispatch,getState) => {
 
       /* show loading */
       dispatch({ type: ActionType.SHOW_LOADING });
 
-      const userId = _.get(getState(),'login.user._id');
+      const user = _.get(getState(),'login.user');
 
-      if(!userId){
+      const restaurant = _.get(getState(),'restaurant.restaurant');
+
+      if(!user){
 
          dispatch(showError(intl.get('error.need-login'),()=>{
             dispatch(push('/login'));
@@ -149,16 +151,16 @@ export function placeOrder (restId){
          const data = {
             payment:_.get(get('payment'),'value'),
             cart:_.get(getState(),'cart.cart'),
-            user:{
-               _id:userId
-            },
-            restaurant:{
-               _id: restId
-            }
+            userId:_.get(user,'_id'),
+            restaurantId:_.get(restaurant,'_id')
          };
 
          /* 发送下单请求 */
          await placeOrderRequest(data);
+
+         /* 成功后，清空购物车 */
+         dispatch({ type: ActionType.CLEAR_CART });
+         set('cart',[]);
 
          /* 模拟时间 */
          await mockTimeout(2000);

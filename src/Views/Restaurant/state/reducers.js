@@ -11,6 +11,12 @@ export default (state = initialState, payload) => {
          ...state,
          restaurants: payload.restaurants
       };
+   case ActionType.SAVE_RESTAURANT:
+
+      return {
+         ...state,
+         restaurant: payload.restaurant
+      };
    default:
       return state;
    }
