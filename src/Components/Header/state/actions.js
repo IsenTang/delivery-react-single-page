@@ -1,4 +1,5 @@
 import intl from 'react-intl-universal';
+import { push } from 'connected-react-router';
 
 import * as ActionType from '../../../Redux/actionTypes';
 import { set } from '../../../Common/utils';
@@ -21,6 +22,16 @@ export function changeLanguage (language){
       });
 
       set('language',language);
+   };
+
+}
+
+/* 去order页面 */
+export function goOrder (){
+
+   return async (dispatch) => {
+
+      dispatch(push('/order'));
    };
 
 }

@@ -8,7 +8,7 @@ import  uuidv4  from 'uuid/v4';
 import { useDispatch,useSelector } from 'react-redux';
 
 /* actions */
-import { changeLanguage } from '../state/actions';
+import { changeLanguage,goOrder } from '../state/actions';
 import { goLogin,logOut } from '../../../Redux/actions/gloabl';
 
 function ProfileDropDown ({ closeDropDown }){
@@ -75,6 +75,13 @@ function ProfileDropDown ({ closeDropDown }){
             <button className='profile-button' type='button' onClick={ () => { closeDropDown(); dispatch(goLogin()); } }>
                {intl.get('login.login')}
             </button>
+         }
+         {
+            _.isEmpty(user) || (path == '/order') ?
+               null :
+               <button className='order-btn' type='button' onClick={ () => { closeDropDown(); dispatch(goOrder()); } }>
+                  {intl.get('order.title')}
+               </button>
          }
          <div className='language-button'>
             {langButtons}

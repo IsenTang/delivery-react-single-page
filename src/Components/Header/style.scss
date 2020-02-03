@@ -48,6 +48,12 @@
   border-radius : 25px;
 }
 
+.order-btn{
+  @extend .profile-button;
+  color : $white;
+  background-color : $black;
+}
+
 /* language button */
 .language-button{
   position : relative;

@@ -1,6 +1,5 @@
-import React,{ useState } from 'react';
+import React,{ useState,useRef } from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
 import _ from 'lodash';
 import intl from 'react-intl-universal';
 import Moment from 'moment';
@@ -9,12 +8,13 @@ import classnames from 'classnames';
 
 /* component */
 import CartItem  from '../../Menu/components/CartItem';
+import LogoImg from '../../../Assets/logo.png';
 
 /* public */
 import { getTotal } from '../../../Views/Menu/public';
 
 /* utils */
-import { getLanguageInfo,get,formatPrice } from '../../../Common/utils';
+import { getLanguageInfo,formatPrice } from '../../../Common/utils';
 
 /* style */
 import './style.scss';
@@ -22,9 +22,7 @@ import './style.scss';
 /* 单个订单组件 */
 function SingleOrder ({ order }){
 
-   const language = get('language');
-
-   const dispatch = useDispatch();
+   let orderItemRef = useRef(null);
 
    const [ expand , setExpand ] = useState(false);
 
@@ -33,6 +31,7 @@ function SingleOrder ({ order }){
 
       const cart = _.get(order,'cart');
 
+      /* group 为了获取食物数量 */
       const orderItems = _(cart)
          .groupBy(i => i._id)
          .map(item => {
@@ -45,8 +44,9 @@ function SingleOrder ({ order }){
                />
             );
          }).value();
+
       return (
-         <div className='order-items'> { orderItems}</div>
+         <div className='order-items'> { orderItems } </div>
       );
 
    }
@@ -67,10 +67,20 @@ function SingleOrder ({ order }){
       );
    }
 
+   function renderImage (){
+
+      return (
+         <div className={ classnames('containerRowCenter') }>
+            <img src={ LogoImg }/>
+         </div>
+      );
+   }
+
    function renderFooter (){
 
       return (
          <div className='order-footer'>
+            { expand ? renderImage() : null }
             {/* 总价 */}
             <div className={ classnames('containerBetween','order-total') }>
                <div> {intl.get('menu.total')} </div>
@@ -78,14 +88,37 @@ function SingleOrder ({ order }){
             </div>
             {/* more */}
             <div className={ classnames('containerRowCenter','more-btn') }>
-               <button className={ classnames('normal-btn') } onClick={ ()=>{ setExpand(true); } }> {intl.get('order.more')} </button>
+               <button className={ classnames('normal-btn') } onClick={ handleMore }> {intl.get('order.more')} </button>
             </div>
          </div>
       );
    }
 
+   /* more button handler */
+   function handleMore (e){
+
+      e.preventDefault();
+
+      setExpand(true);
+
+      /* 增加 mouse down 监听，点击组件外，关闭组件 */
+      document.addEventListener('mousedown', handleClickOutside);
+   }
+
+   /* 点击组件外 */
+   function handleClickOutside (e){
+
+      /* 关闭，并移除监听 */
+      if (orderItemRef.current &&
+         !orderItemRef.current.contains(e.target)) {
+         setExpand(false);
+         document.removeEventListener('mousedown', this.handleClickOutside);
+      }
+
+   }
+
    return (
-      <div className='order-item-box'>
+      <div className= { classnames('order-item-box',{ 'order-item-box-expand': expand }) } ref={ orderItemRef }>
          {renderTitle()}
          {renderCart()}
          {renderFooter()}

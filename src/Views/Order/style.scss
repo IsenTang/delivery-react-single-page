@@ -16,11 +16,25 @@
 }
 
 .order-list{
+    position : relative;
     display : grid;
-    grid-template-rows : repeat(10,460px);
+    grid-template-rows : repeat(5,460px);
     grid-template-columns : 33% 33% 33%;
     width :100%;
     margin-left : 100px;
+
+    >.order-item-box:nth-child(3n+2){
+        grid-column-start :2;
+      }
+
+    >.order-item-box:nth-child(3n+0){
+        grid-column-start :3;
+    }
+
+    > *{
+        align-self : start;
+        justify-self : center;
+      }
 }
 
 .order-tab-fixed{
