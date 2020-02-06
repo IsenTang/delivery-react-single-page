@@ -5,7 +5,7 @@ import env from '../Common/config';
 export async function checkLogin (data){
 
    const result = await request({
-      url:     `${env.server}/login`,
+      url:     `${env.server}/user/login`,
       method:  'post',
       data
    });
@@ -16,7 +16,7 @@ export async function checkLogin (data){
 export async function register (data){
 
    const result = await request({
-      url:     `${env.server}/register`,
+      url:     `${env.server}/user/register`,
       method:  'post',
       data
    });
