@@ -5,6 +5,9 @@ import { loadOrder } from '../../../Requests/order';
 import { showError } from '../../../Redux/actions/gloabl';
 import { get } from '../../../Common/utils';
 
+/* actions */
+import { logOut } from '../../../Redux/actions/gloabl';
+
 /* 加载餐馆 */
 export function loadOrders (){
 

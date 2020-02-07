@@ -9,6 +9,9 @@ import { get,set,mockTimeout } from '../../../Common/utils';
 import { placeOrderRequest } from '../../../Requests/order';
 import { loadMenu as requestMenu } from '../../../Requests/menu';
 
+/* actions */
+import { logOut } from '../../../Redux/actions/gloabl';
+
 /* 加载餐馆 */
 export function loadMenu (restaurantId){
 
@@ -169,6 +172,9 @@ export function placeOrder (){
 
       } catch (error) {
 
+         if(error.code === 'auth-failed'){
+            dispatch(logOut());
+         }
          dispatch(showError(error.message));
 
       } finally {
