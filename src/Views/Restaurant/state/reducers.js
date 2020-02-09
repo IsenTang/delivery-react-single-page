@@ -1,6 +1,9 @@
 import * as ActionType from '../../../Redux/actionTypes';
+import { get } from '../../../Common/utils';
 
-const initialState = {  };
+const initialState = {
+   restaurant:get('restaurant') || null
+};
 
 export default (state = initialState, payload) => {
 
