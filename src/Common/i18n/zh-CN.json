@@ -67,7 +67,8 @@
         "asian_fusion": "创新菜",
         "fujian": "福建菜",
         "wonton": "馄饨",
-        "congee": "粥"
+        "congee": "粥",
+        "ramen":"拉面"
       },
       "error":{
         "need-login":"您需要先登录。",

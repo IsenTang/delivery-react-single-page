@@ -67,10 +67,11 @@
         "asian_fusion": "Asian Fusion",
         "fujian": "Fujian",
         "wonton": "Wonton",
-        "congee": "Congee"
+        "congee": "Congee",
+        "ramen":"Ramen"
       },
       "error":{
         "need-login":"Please log in first.",
-        "error.user-duplicate":"Duplicate username",
+        "error.user-duplicate":"Duplicate username"
       }
 }
