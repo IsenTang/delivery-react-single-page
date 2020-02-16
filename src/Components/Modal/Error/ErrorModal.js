@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import classnames from 'classnames';
+import intl from 'react-intl-universal';
 import { useSelector,shallowEqual,useDispatch } from 'react-redux';
 
 /* actions */
@@ -46,7 +47,7 @@ function ErrorModal (){
       >
          <div className={ classnames('error-modal-box','containerCol','vertical','space-between') }>
             <div>{message}</div>
-            <button onClick={ closeModal } className={ classnames('normal-btn','error-btn') }>关闭</button>
+            <button onClick={ closeModal } className={ classnames('normal-btn','error-btn') }>{intl.get('close')}</button>
          </div>
       </Modal>
    );
