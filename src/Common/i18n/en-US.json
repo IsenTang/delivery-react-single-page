@@ -2,7 +2,6 @@
     "login.error.name":"Please enter the correct username, 4 to 16 digits, letters, numbers, underscores, minus signs.",
     "login.error.password":"The password entered does not meet the requirements, at least 6 digits, at least 1 uppercase letter, 1 lowercase letter, 1 number, 1 special symbol.",
     "login.error.comfirmPassword":"The passwords entered twice are different, please re-enter",
-    "login.error.user-duplicate":"Duplicate username",
     "login.username":"Username",
     "login.password":"Password",
     "login.login":"Login",
@@ -71,6 +70,7 @@
         "congee": "Congee"
       },
       "error":{
-        "need-login":"Please log in first."
+        "need-login":"Please log in first.",
+        "error.user-duplicate":"Duplicate username",
       }
 }

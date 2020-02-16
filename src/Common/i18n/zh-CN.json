@@ -2,7 +2,6 @@
     "login.error.name":"请输入正确的用户名，4到16位，字母，数字，下划线，减号。",
     "login.error.password":"输入的密码不符合要求，至少6位，至少1个大写字母，1个小写字母，1个数字，1个特殊符号。",
     "login.error.comfirmPassword":"两次输入的密码不一致，请重新输入。",
-    "login.error.user-duplicate":"用户名重复。",
     "login.username":"用户名",
     "login.password":"密码",
     "login.login":"登录",
@@ -71,6 +70,7 @@
         "congee": "粥"
       },
       "error":{
-        "need-login":"您需要先登录。"
+        "need-login":"您需要先登录。",
+        "user-duplicate":"用户名重复。"
       }
 }
