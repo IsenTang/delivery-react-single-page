@@ -228,7 +228,7 @@ function Cart (){
             <div className = { classnames('menu-cart-main-container',{ 'menu-cart-main-container-expand': isExpand }) }>
 
                {/* cart items */}
-               <div classnames='menu-cart-items'>{renderCart()}</div>
+               <div >{renderCart()}</div>
 
                {/* total button */}
                <div>
