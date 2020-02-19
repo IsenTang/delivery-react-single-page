@@ -84,7 +84,7 @@ function renderRouter (){
       />
    ));
 
-   array.push(<Redirect key={ uuidv4() } path="/" exact={ true } to="/restaurant" />);
+   array.push(<Redirect key={ uuidv4() } path="*" exact={ true } to="/restaurant" />);
 
    return array;
 }
