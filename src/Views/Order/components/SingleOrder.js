@@ -71,7 +71,7 @@ function SingleOrder ({ order }){
 
       return (
          <div className={ classnames('containerRowCenter') }>
-            <img src={ LogoImg }/>
+            <img alt="" src={ LogoImg }/>
          </div>
       );
    }

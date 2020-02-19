@@ -70,14 +70,14 @@ function ProfileDropDown ({ closeDropDown }){
       <div className='profile-drop-down' ref={ (e)=>{ setWrapperRef(e); } }>
 
          {/* 如果没有登录，或者在登录页面，不显示登录按钮 */}
-         { !_.isEmpty(user) || (path == '/login') ?
+         { !_.isEmpty(user) || (path === '/login') ?
             null :
             <button className='profile-button' type='button' onClick={ () => { closeDropDown(); dispatch(goLogin()); } }>
                {intl.get('login.login')}
             </button>
          }
          {
-            _.isEmpty(user) || (path == '/order') ?
+            _.isEmpty(user) || (path === '/order') ?
                null :
                <button className='order-btn' type='button' onClick={ () => { closeDropDown(); dispatch(goOrder()); } }>
                   {intl.get('order.title')}

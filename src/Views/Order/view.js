@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState,useEffect } from 'react';
 import { useMount } from 'react-use';
 import { useDispatch,useSelector } from 'react-redux';
 import intl from 'react-intl-universal';
@@ -26,10 +25,8 @@ function Order (){
    /* dispatch */
    const dispatch = useDispatch();
 
-   const [ orderList,setOrderList ] = useState(null);
-
    /* store */
-   const language = useSelector(state => state.language.language);
+   useSelector(state => state.language.language);
 
    const orders = useSelector(state => state.order.orders);
 
@@ -45,11 +42,6 @@ function Order (){
          dispatch(loadOrders());
       }
    });
-
-   useEffect(() => {
-
-      setOrderList(renderOrders());
-   }, [ orders,language ]);
 
    /* 渲染order */
    function renderOrders (){

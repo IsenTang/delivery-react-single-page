@@ -11,12 +11,14 @@ function DishFood ({ image,height,width }){
    return (
       <div className='rest-image-box'>
          <img src={ DishImage }
+            alt=""
             className = 'dish-image'
             style={{
                width,
                height
             }}/>
          <img src={ image }
+            alt=""
             className = 'food-image'
             style={{
                width,

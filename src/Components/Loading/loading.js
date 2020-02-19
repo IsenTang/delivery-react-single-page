@@ -16,7 +16,7 @@ function Loading ({ showLoading }){
             <div className='loading-container' >
                <div className='loading-opacityContainer' />
                <div className='loading-image-container'>
-                  <img src={ loadingImage } className='loading-image' />
+                  <img alt="" src={ loadingImage } className='loading-image' />
                </div>
             </div> :
             null}

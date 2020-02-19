@@ -151,6 +151,7 @@ function Cart (){
                   if (_.has(logoMap, props.data.value)) {
                      return <img
                         src={ logoMap[props.data.value] }
+                        alt=""
                         className={ classnames('payment-select-logo') }
                      />;
                   }
@@ -169,7 +170,7 @@ function Cart (){
                   (() => {
 
                      if (_.has(logoMap, props.value)) {
-                        return <img src={ logoMap[props.value] } className='payment-select-logo' />;
+                        return <img alt="" src={ logoMap[props.value] } className='payment-select-logo' />;
                      }
 
                   })()
@@ -189,7 +190,7 @@ function Cart (){
       return(
          <div className={ classnames('containerCol') }>
             <div className={ classnames('containerRowCenter',{ 'not-visible': !isExpand,'visible': isExpand }) }>
-               <img src={ LogoImg }/>
+               <img alt="" src={ LogoImg }/>
             </div>
 
             <div className={ classnames('containerRowAlign','horizontally',{ 'not-visible': !isExpand,'visible': isExpand }) }>
@@ -217,7 +218,7 @@ function Cart (){
             onClick={ ()=>{ setIsExpand(false);} }
             className={ classnames('menu-cart-closed') }
          >
-            <img src={ ClosedButton } className={ classnames('menu-cart-closed-btn','cursor') }></img>
+            <img alt="" src={ ClosedButton } className={ classnames('menu-cart-closed-btn','cursor') }></img>
          </button> : null}
 
          {/* 主页面，expand or normal */}

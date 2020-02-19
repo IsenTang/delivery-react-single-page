@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState,useEffect } from 'react';
 import { useMount } from 'react-use';
 import { useDispatch,useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -30,8 +29,6 @@ function Menu (){
    /* dispatch */
    const dispatch = useDispatch();
 
-   const [ foods,setFoods ] = useState(null);
-
    /* store */
    const language = useSelector(state => state.language.language);
 
@@ -58,15 +55,6 @@ function Menu (){
       /* 获取restaurants */
       dispatch(loadMenu(restId));
    });
-
-   /* 获取menu */
-   useEffect(() => {
-
-      const foodsList = renderMenu(menu);
-
-      setFoods(foodsList);
-
-   }, [ menu,language,cart ]);
 
    /* 菜单渲染 */
    function renderMenu (menu){
@@ -188,7 +176,7 @@ function Menu (){
          </div>
 
          <div className='all-category-box'>
-            {foods}
+            {renderMenu(menu)}
          </div>
          <div className='menu-cart-container'>
             <div className='menu-cart-content'>

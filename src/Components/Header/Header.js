@@ -32,6 +32,7 @@ function Header ({ children }){
          <div className='header'>
             <div className={ classnames('containerBetween', 'vertical', 'left') }>
                <img className='logo'
+                  alt=''
                   onClick={ ()=>{ dispatch(goRestaurant());} }
                   src={ require('../../Assets/logo.png') }
                />
@@ -39,6 +40,7 @@ function Header ({ children }){
             <div className='profile'>
                <img
                   className='profile-logo'
+                  alt=''
                   onClick = { showProfile }
                   src={ require('../../Assets/profile-icon.png') }
                />

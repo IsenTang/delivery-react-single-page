@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState,useEffect } from 'react';
 import { useMount } from 'react-use';
 import { useDispatch,useSelector } from 'react-redux';
 import intl from 'react-intl-universal';
@@ -27,23 +26,14 @@ function Restaurants (){
 
    const restaurants = useSelector(state => state.restaurant.restaurants);
 
-   let [ rests,setRests ] = useState(null);
-
    /* store */
-   const language = useSelector(state => state.language.language);
+   useSelector(state => state.language.language);
 
    useMount(()=>{
 
       /* 获取restaurants */
       dispatch(loadRestaurants());
    });
-
-   useEffect(() => {
-
-      const restsList = renderRestaurants(restaurants);
-
-      setRests(restsList);
-   }, [ restaurants,language ]);
 
    /* 餐馆渲染方式 */
    function renderRestaurants (restaurants){
@@ -58,7 +48,7 @@ function Restaurants (){
                   _.isEmpty(restaurants) ? null : <div>
 
                      { _.map(restaurants,(item,index)=>{
-                        if(index % 2 == 0){
+                        if(index % 2 === 0){
                            return (
                               <div key={ uuidv4() }>
                                  <SingleRestaurant restaurant={ item }/>
@@ -76,7 +66,7 @@ function Restaurants (){
                   _.isEmpty(restaurants) ? null : <div>
 
                      { _.map(restaurants,(item,index)=>{
-                        if(index % 2 != 0){
+                        if(index % 2 !== 0){
                            return (
                               <div key={ uuidv4() }>
                                  <SingleRestaurant restaurant={ item }/>
@@ -127,7 +117,7 @@ function Restaurants (){
                <div className='rectangle'></div>
             </div>
          </div>
-         {rests}
+         { renderRestaurants(restaurants) }
       </div>
    );
 }

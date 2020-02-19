@@ -174,6 +174,8 @@ export function placeOrder (){
 
          if(error.code === 'auth-failed'){
             dispatch(logOut());
+
+            dispatch(push('/login'));
          }
          dispatch(showError(error.message));
 
