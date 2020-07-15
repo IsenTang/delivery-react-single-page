@@ -62,6 +62,7 @@ function Login () {
    function checkPassword (password){
       /* 至少6位，至少1个大写字母，1个小写字母，1个数字，1个特殊符号 */
       const pattern = /^.*(?=.{6,})(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*? ]).*$/;
+
       return pattern.test(password);
    }
 
