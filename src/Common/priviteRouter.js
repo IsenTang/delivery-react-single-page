@@ -6,7 +6,7 @@ import { get } from './utils';
 
 /* 用户在未登录的情况下可以看餐馆信息 */
 /**
- * private rote
+ * private route
  */
 const PrivateRouter = ({ component: Component, ...rest }) => {
 

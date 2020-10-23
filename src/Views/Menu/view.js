@@ -57,7 +57,7 @@ function Menu (){
    });
 
    /* 菜单渲染 */
-   function renderMenu (menu){
+   function renderMenu (){
 
       const categories = _.get(menu, 'categories');
 
@@ -73,8 +73,6 @@ function Menu (){
 
          /* get categorie food by categorie id */
          let categorieFood = _.filter(foods, { category: { _id: categorieId } });
-
-         categorieFood = _.sortBy(categorieFood, 'zscode');
 
          /* if empty return null */
          if (_.isEmpty(categorieFood)) {

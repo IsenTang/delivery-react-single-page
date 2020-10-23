@@ -19,7 +19,8 @@ function Loading ({ showLoading }){
                   <img alt="" src={ loadingImage } className='loading-image' />
                </div>
             </div> :
-            null}
+            null
+         }
       </div>
    );
 }

@@ -91,9 +91,9 @@ function Restaurants (){
 
       let rests = _.cloneDeep(restaurants);
 
-      rests = _.sortBy(restaurants, [ 'featured', true ]);
+      rests = _.orderBy(restaurants, [ 'featured','zscore' ],[ 'desc','desc' ]);
 
-      rests = _.sortBy(restaurants, 'zscode');
+      // rests = _.sortBy(rests, 'zscode');
 
       _.forEach(rests, (item) => {
 
@@ -112,10 +112,10 @@ function Restaurants (){
    return (
       <div className={ classNames('containerBetween') }>
          <div className={ classNames('rest-tab') }>
-            <div className='rest-tab-fixed'>
-               {intl.get('restaurant.allRestaurant')}
-               <div className='rectangle'></div>
-            </div>
+
+            {intl.get('restaurant.allRestaurant')}
+            <div className='rectangle'></div>
+
          </div>
          { renderRestaurants(restaurants) }
       </div>
