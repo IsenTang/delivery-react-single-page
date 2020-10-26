@@ -4,7 +4,6 @@ import { useDispatch,useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import intl from 'react-intl-universal';
 import _ from 'lodash';
-import  uuidv4  from 'uuid/v4';
 import classnames from 'classnames';
 import * as ActionType from '../../Redux/actionTypes';
 
@@ -79,7 +78,7 @@ function Menu (){
             return null;
          }
 
-         return (<div key={ uuidv4() } className= 'category-box' >
+         return (<div key={ categorie._id } className= 'category-box' >
             <div >
                <div className='titleText'>{categorie.name[`${language}`]}</div>
                <div className='rectangle' style={{ position : 'relative', left : 0 }}/>
@@ -122,7 +121,7 @@ function Menu (){
          const availableStyle = { opacity: 0.2 };
 
          return (
-            <div key={ uuidv4() } className={ classnames('menu-food-item','cursor') }  onClick={ () => addFood(food) }>
+            <div key={ food._id } className={ classnames('menu-food-item','cursor') }  onClick={ () => addFood(food) }>
                {
                   length !== 0 ?
                      <div className='menu-count'>
@@ -174,7 +173,7 @@ function Menu (){
          </div>
 
          <div className='all-category-box'>
-            {renderMenu(menu)}
+            {renderMenu()}
          </div>
          <div className='menu-cart-container'>
             <div className='menu-cart-content'>

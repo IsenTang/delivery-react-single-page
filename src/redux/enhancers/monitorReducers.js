@@ -1,6 +1,6 @@
 
 /* 四舍五入 */
-const round = number => Math.round(number * 100) / 100;
+// const round = number => Math.round(number * 100) / 100;
 
 /* 计算reducer执行的时间 */
 const monitorReducerEnhancer = createStore => (
@@ -9,12 +9,12 @@ const monitorReducerEnhancer = createStore => (
    enhancer
 ) => {
    const monitoredReducer = (state, action) => {
-      const start = performance.now();
+      // const start = performance.now();
       const newState = reducer(state, action);
-      const end = performance.now();
-      const diff = round(end - start);
-      console.log('action type ==> ',action.type);
-      console.log('reducer process time:', diff);
+      // const end = performance.now();
+      // const diff = round(end - start);
+      // console.log('action type ==> ',action.type);
+      // console.log('reducer process time:', diff);
       return newState;
    };
    return createStore(monitoredReducer, initialState, enhancer);
